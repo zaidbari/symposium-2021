@@ -1,0 +1,14 @@
+@mixin badge($color) {
+  background: rgba(map-get($theme-colors, $color), 0.2) !important;
+  color: map-get($theme-colors, $color) !important;
+}
+
+.badge { padding: 4px 20px }
+.badge.bg-primary {
+ @include badge('primary')
+}
+
+.badge.bg-danger {
+  @include badge('danger')
+}
+

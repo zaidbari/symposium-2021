@@ -1,0 +1,50 @@
+{% extends "admin/layout.twig" %}
+{% block content  %}
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-2 ms-auto">
+                <a href="/admin/videos/create" class="btn btn-primary w-100" >Add video</a>
+            </div>
+        </div>
+
+        <div class="table-responsive bg-white shadow rounded">
+            <table class="table align-middle table-bordered" id="tableList">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col" style="width: 50px">#</th>
+                    <th scope="col">Speaker</th>
+                    <th scope="col">Name</th>
+                    <th scope="col" style="width: 130px">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for video in data%}
+                    <tr class="single" id="{{ video.video_id }}">
+                        <td>
+                            {{ loop.index }}
+                        </td>
+                        <td><img src="/files/speakers/{{ video.image }}" style="width: 30px; height: 30px" class="rounded-circle me-3 shadow" alt="">{{ video.name }}</td>
+                        <td>{{ video.video_name }}</td>
+                        <td>
+                            <form action="" method="post" class="d-inline">
+                                <input type="hidden" name="video_id" value="{{ video.video_id }}" />
+                                <button  class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                            <a href="/admin/videos/edit/{{ video.video_id }}" class="btn btn-warning btn-sm ">Edit</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/resources/assets/js/jquery.js"></script>
+    <script src="/resources/assets/js/jui.js"></script>
+    <script>
+        let $sortable = $( "#tableList > tbody" )
+        $sortable.sortable({ stop: () => $.post("/admin/videos/updatePosition",{ value: $sortable.sortable( "toArray" ) }) })
+    </script>
+{% endblock %}

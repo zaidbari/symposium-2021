@@ -1,0 +1,12 @@
+{% extends is_auth() ? "admin/layout.twig" : "layout.twig" %}
+{% block content  %}
+    <div class="bg-light py-5 text-center">
+        <div class="container">
+                <div class="col-md-8 mx-auto mb-5">
+                    <img src="/resources/assets/images/svg/{{ code }}.svg" class="img-fluid" alt="">
+                </div>
+
+                <p class="lead">{{ message }}</p>
+        </div>
+    </div>
+{%  endblock  %}

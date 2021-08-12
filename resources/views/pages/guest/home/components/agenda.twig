@@ -1,0 +1,52 @@
+<div class="container pt-5 my-5">
+    <h2 class="py-5 text-center ">Conference Agenda</h2>
+    <nav class="d-none d-sm-block">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            {% for key, d in data %}
+                <button class="nav-link {{ loop.index == 1 ? 'active': ''}} fw-bold text-primary px-5" id="nav-{{ loop.index }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ loop.index }}" type="button" role="tab" aria-controls="nav-{{ loop.index }}" aria-selected="true">{{ key }}</button>
+            {% endfor %}
+        </div>
+    </nav>
+    <div class="tab-content d-none d-sm-block" id="nav-tabContent">
+        {% for key, d in data %}
+            <div class="tab-pane {{ loop.index == 1 ? 'fade show active': ''}} " id="nav-{{ loop.index }}" role="tabpanel" aria-labelledby="nav-{{ loop.index }}-tab">
+                {% for key, day in d %}
+                <h3 class="alert-primary alert mt-4">{{ key }}</h3>
+                    {% for agenda in day %}
+                    <div class="card my-4 card-body">
+                        <div class="row">
+                            <div class="col-md-1 align-self-center">
+                                {% if agenda.image != null %}
+                                    <div class="ratio ratio-1x1">
+                                        <img src="/files/speakers/{{ agenda.image }}" class="img-fluid border-3 border border-primary" style="border-radius: 100%;" alt="">
+                                    </div>
+                                {% else %}
+                                    <div class="ratio ratio-1x1">
+                                        <div class="bg-primary" style="border-radius: 100%;"></div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-11 align-self-center">
+                                <p class="lead mb-0">
+                                    {{ agenda.talk }}
+                                </p>
+                            {% if agenda.name != 'Lunch' and agenda.name != 'Sponsor' %}
+                                <div class="fw-bold mb-2 text-muted"><span class="text-primary">Speaker: </span> {{ agenda.name }}</div>
+                            {% endif %}
+                            {{ agenda.start_time|date('h:i a') }}&nbsp; &mdash; &nbsp;  {{ agenda.end_time|date('h:i a') }} (UAE Standard Time)
+                            <span class="check-time">
+                                <span class="start-time" style="display:none;">{{agenda.start_time}}</span>
+                                <span class="end-time" style="display:none;">{{agenda.end_time}}</span>
+                                <span class="local-time alert-primary px-2"></span>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                        {% endfor %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+

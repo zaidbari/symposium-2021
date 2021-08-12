@@ -1,0 +1,17 @@
+@mixin button($color) {
+  background-color: rgba(map-get($theme-colors, $color), 0.2) !important;
+  color: map-get($theme-colors,  $color)!important;
+  border: 1px solid rgba(map-get($theme-colors,  $color), 0.1);
+  &:hover {
+    box-shadow: 0 0 15px rgba(map-get($theme-colors,  $color), 0.2)!important;
+  }
+}
+
+.btn-success { @include button('success') }
+.btn-danger { @include button('danger') }
+.btn-primary { @include button('primary') }
+.btn-warning { @include button('warning') }
+
+.tox-notifications-container {
+  display: none !important;
+}

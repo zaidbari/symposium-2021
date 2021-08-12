@@ -1,0 +1,66 @@
+{% extends "admin/layout.twig" %}
+{% block content  %}
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-2 ms-auto">
+                <a href="/admin/speakers/create" class="btn btn-primary w-100" >Create speaker</a>
+            </div>
+        </div>
+
+        <div class="table-responsive bg-white shadow rounded">
+            <table class="table align-middle table-bordered" id="tableList">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col" style="width: 50px">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col" style="width: 650px">Affiliation</th>
+                    <th scope="col" style="width: 200px">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for speaker in data|sort((a, b) => a.position <=> b.position) %}
+                    <tr id="{{ speaker.id }}" class="single">
+                        <td>
+                            {% if speaker.image %}
+                                <img src="/files/speakers/{{ speaker.image }}" style="border-radius: 40px" height="40px" width="40px" loading="lazy" alt="">
+                            {% else %}
+                                <div style="width: 35px; height: 35px; border-radius: 35px;" class="bg-primary d-flex align-items-center justify-content-center text-white fw-bold">S</div>
+                            {% endif %}
+                        </td>
+                        <td>{{ speaker.name }}</td>
+                        <td>{{ speaker.affiliation }}</td>
+                        <td>
+                            <a href="/admin/speakers/edit/{{ speaker.id }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="" method="post" class="d-inline">
+                                <input type="hidden" name="speaker_id" value="{{ speaker.id }}">
+                                <input type="hidden" name="delete" value="true">
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                            <form action="" method="post" class="d-inline">
+                                <input type="hidden" name="speaker_id" value="{{ speaker.id }}">
+                                {% if speaker.display_home %}
+                                    <input type="hidden" name="display" value="0">
+                                    <button class="btn btn-danger btn-sm">Hide</button>
+
+                                {% else %}
+                                    <input type="hidden" name="display" value="1">
+                                    <button class="btn btn-primary btn-sm">Display</button>
+                                {% endif %}
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/resources/assets/js/jquery.js"></script>
+    <script src="/resources/assets/js/jui.js"></script>
+    <script>
+        let $sortable = $( "#tableList > tbody" )
+        $sortable.sortable({ stop: () => $.post("/admin/speakers/updatePosition",{ value: $sortable.sortable( "toArray" ) }) })
+    </script>
+{% endblock %}

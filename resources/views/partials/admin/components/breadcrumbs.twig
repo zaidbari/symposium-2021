@@ -1,0 +1,19 @@
+<div class="px-lg-4 mb-5 bg-white shadow pt-3">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between">
+            <h5 class="text-center fw-bold text-primary">{{ meta.title }}</h5>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb px-2">
+                    <li class="breadcrumb-item fw-bold"><a class="text-primary" href="/">Home</a></li>
+                    {% for breadcrumb in meta.breadcrumbs %}
+                        {% if breadcrumb.active %}
+                            <li class="breadcrumb-item fw-bold active">{{ breadcrumb.name }}</li>
+                        {% else %}
+                            <li class="breadcrumb-item fw-bold"><a class="text-primary" href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>

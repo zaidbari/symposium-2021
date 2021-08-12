@@ -1,0 +1,27 @@
+{% extends "admin/layout.twig" %}
+{% block content  %}
+    <div class="container">
+        <div class="table-responsive bg-white shadow rounded">
+            <table class="table align-middle table-bordered" id="tableList">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col" style="width: 50px">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col" style="width: 100px">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for page in data%}
+                    <tr class="single">
+                        <td>
+                            {{ loop.index }}
+                        </td>
+                        <td>{{ page.name }}</td>
+                        <td><a href="/admin/pages/edit/{{ page.id }}" class="btn btn-warning btn-sm w-100">Edit</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

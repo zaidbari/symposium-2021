@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "admin/header.twig" %}
+    <title>{{ meta.title ? meta.title | upper ~ ' | ' : '' }} {{ get_var('APP_NAME') | upper }}</title>
+</head>
+<body class="pt-5 bg-light mt-3">
+    {% include "admin/navbar.twig" %}
+    {% include "admin/components/breadcrumbs.twig" %}
+    {% if success != false %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <div class="container">
+                <strong>{{ success }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    {% endif %}
+    {% if error != false %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div class="container">
+                <strong>{{ error }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+    {% include "admin/scripts.twig" %}
+    {% block scripts %}{% endblock %}
+</body>
+</html>

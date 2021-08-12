@@ -1,0 +1,48 @@
+{% extends "admin/layout.twig" %}
+{% block content  %}
+
+    <div class="container">
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="row gy-3">
+                <div class="col-md-12 mb-2">
+                    <label for="name" class="form-label">Speaker Name</label>
+                    <input type="text" name="name" id="name" class="form-control" value="{{ data.name }}" required />
+                    {% for err in errors.name %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+                <div class="col-md-12 mb-2">
+                    <label for="affiliation" class="form-label">Affiliation</label>
+                    <input type="text" name="affiliation" id="affiliation" class="form-control" value="{{ data.affiliation }}"  />
+                    {% for err in errors.affiliation %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+                <div class="col-md-12 mb-2">
+                    <label for="lecture" class="form-label">Lecture</label>
+                    <input type="text" name="lecture" id="lecture" class="form-control" value="{{ data.lecture }}"  />
+                    {% for err in errors.lecture %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+                <div class="col-md-12 mb-2">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" accept="image/*" name="image" id="image" class="form-control" />
+                    {% for err in errors.image %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+                <div class="col-md-12 mb-2">
+                    <label for="bio" class="form-label">Bio</label>
+                    <textarea name="bio" id="bio" class="form-control" rows="4">{{ data.bio }}</textarea>
+                    {% for err in errors.bio %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+                <div class="col-md-12 mb-2">
+                    <button class="btn-primary btn px-4">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

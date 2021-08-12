@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "header.twig" %}
+    <title>{{ meta.title ? meta.title | upper ~ ' | ' : '' }} {{ get_var('APP_NAME') | upper }}</title>
+</head>
+<body>
+    {% include "navbar.twig" %}
+
+    {% block content %}{% endblock %}
+    {% if CURRENT_ROUTE != '/login' and CURRENT_ROUTE != '/register' %} {% include "footer.twig" %} {% endif %}
+    {% include "scripts.twig" %}
+    {% block scripts %}{% endblock %}
+</body>
+</html>

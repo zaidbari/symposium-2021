@@ -1,0 +1,61 @@
+<li class="nav-item">
+    <a class="nav-link me-2 {{ CURRENT_ROUTE == '/dashboard'? 'text-primary fw-bold': '' }}" href="/dashboard"><i class="bi bi-compass fs-5 me-1"></i> Dashboard</a>
+</li>
+
+
+<li class="nav-item dropdown">
+    <a class="nav-link me-2  {{
+        '/speakers' in CURRENT_ROUTE
+    ? 'text-primary fw-bold': ''
+    }} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-megaphone fs-5 me-1"></i> Manage Speakers
+    </a>
+    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="/admin/speakers">All speakers</a></li>
+        <li><a class="dropdown-item" href="/admin/speakers/create">Create speaker</a></li>
+    </ul>
+</li>
+
+<li class="nav-item dropdown">
+    <a class="nav-link me-2  {{
+    '/sponsors' in CURRENT_ROUTE
+    ? 'text-primary fw-bold': ''
+    }} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-megaphone fs-5 me-1"></i> Manage sponsors
+    </a>
+    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="/admin/sponsors">All sponsor</a></li>
+        <li><a class="dropdown-item" href="/admin/sponsors/create">Create sponsor</a></li>
+    </ul>
+</li>
+
+<li class="nav-item dropdown">
+    <a class="nav-link me-2  {{
+    '/agenda'  in CURRENT_ROUTE
+    ? 'text-primary fw-bold': ''
+    }} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-alarm fs-5 me-1"></i> Manage Agenda
+    </a>
+    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="/admin/agenda">Agenda</a></li>
+        <li><a class="dropdown-item" href="/admin/agenda/create">Create agenda</a></li>
+    </ul>
+</li>
+
+<li class="nav-item dropdown">
+    <a class="nav-link me-2  {{
+    '/videos'  in CURRENT_ROUTE
+    ? 'text-primary fw-bold': ''
+    }} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-alarm fs-5 me-1"></i> Manage Videos
+    </a>
+    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="/admin/videos">All videos</a></li>
+        <li><a class="dropdown-item" href="/admin/videos/create">Add video</a></li>
+    </ul>
+</li>
+
+
+<li class="nav-item">
+    <a class="nav-link me-2 {{  '/pages' in CURRENT_ROUTE ? 'text-primary fw-bold': '' }}" href="/admin/pages"><i class="bi bi-file-earmark-easel fs-5 me-1"></i> Manage pages</a>
+</li>

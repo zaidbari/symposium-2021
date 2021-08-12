@@ -1,0 +1,22 @@
+.card {
+  height: 100% !important;
+  margin-bottom: 20px !important;
+  box-shadow: -8px 12px 18px 0 rgb(25 42 70 / 13%);
+  border: 0 solid #DFE3E7;
+  border-radius: 0.267rem !important;
+
+  .card-body {
+    padding: 1rem 1.7rem;
+  }
+
+  .card-header {
+    padding-top: 1.4rem;
+    padding-left: 1.7rem;
+    padding-right: 1.7rem;
+  }
+  .card-footer {
+    padding-bottom: 1.4rem;
+    padding-left: 1.7rem;
+    padding-right: 1.7rem;
+  }
+}

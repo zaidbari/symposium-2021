@@ -1,0 +1,93 @@
+{% extends "admin/layout.twig" %}
+{% block content  %}
+
+    <div class="container pt-5 my-5">
+    <nav class="d-none d-sm-block">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            {% for key, d in data %}
+                <button class="nav-link {{ loop.index == 1 ? 'active': ''}} fw-bold text-primary px-5" id="nav-{{ loop.index }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ loop.index }}" type="button" role="tab" aria-controls="nav-{{ loop.index }}" aria-selected="true">{{ key }}</button>
+            {% endfor %}
+        </div>
+    </nav>
+    <div class="tab-content d-none d-sm-block" id="nav-tabContent">
+        {% for key, d in data %}
+            <div class="tab-pane {{ loop.index == 1 ? 'fade show active': ''}} " id="nav-{{ loop.index }}" role="tabpanel" aria-labelledby="nav-{{ loop.index }}-tab">
+                {% for key, day in d %}
+                    <h3 class="alert-primary alert mt-4">{{ key }}</h3>
+                    {% for agenda in day %}
+                        <div class="card my-4 card-body">
+                            <div class="row">
+                                <div class="col-md-1 align-self-center">
+                                    {% if agenda.image != null %}
+                                        <div class="ratio ratio-1x1">
+                                            <img src="/files/speakers/{{ agenda.image }}" class="img-fluid border-3 border border-primary" style="border-radius: 100%;" alt="">
+                                        </div>
+                                    {% else %}
+                                        <div class="ratio ratio-1x1">
+                                            <div class="bg-primary" style="border-radius: 100%;"></div>
+                                        </div>
+                                    {% endif %}
+                                    <form action="" method="post">
+                                        <input type="hidden" name="day" value="1">
+                                        <input type="hidden" name="id" value="{{ day.agenda_id }}">
+                                        <button class="btn w-100 mt-3 btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-11 align-self-center">
+                                    <p class="lead mb-0">
+                                        {{ agenda.talk }}
+                                    </p>
+                                    {% if agenda.name != 'Lunch' and agenda.name != 'Sponsor' %}
+                                        <div class="fw-bold mb-2 text-muted"><span class="text-primary">Speaker: </span> {{ agenda.name }}</div>
+                                    {% endif %}
+                                    {{ agenda.start_time|date('h:i a') }}&nbsp; &mdash; &nbsp;  {{ agenda.end_time|date('h:i a') }} (UAE Standard Time)
+                                    <span class="check-time">
+                                <span class="start-time" style="display:none;">{{agenda.start_time}}</span>
+                                <span class="end-time" style="display:none;">{{agenda.end_time}}</span>
+                                <span class="local-time alert-primary px-2"></span>
+                            </span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $('.check-time').each(function(){
+            var utcSeconds = $('.start-time', this).html();
+            var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
+            d.setUTCSeconds(utcSeconds);
+            var startTime = formatAMPM(d);
+
+            utcSeconds = $('.end-time', this).html();
+            d = new Date(0); // The 0 there is the key, which sets the date to the epoch
+            d.setUTCSeconds(utcSeconds);
+            var endTime = formatAMPM(d);
+
+            $('.local-time', this).html(startTime + ' - ' + endTime + ' ' + /\((.*)\)/.exec(d.toString())[1]);
+        });
+
+        function formatAMPM(date) {
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var ampm = hours >= 12 ? 'pm' : 'am';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            hours = hours < 10 ? '0'+hours : hours;
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+            return strTime;
+        }
+    </script>
+{% endblock %}

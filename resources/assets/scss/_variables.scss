@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
+
+$muted: #6c757d;
+$theme-colors: (
+  'primary': #53a9e0,
+  'success': #08cc7f,
+  'danger': #FF5B5C,
+  'warning': #ffb00b,
+  'info': #00CFDD,
+  'dark': #222222,
+  'light': #f8f9fa,
+  'white': #ffffff
+);
+
+body {
+  padding-top: 55px
+}
+
+.login, .register {
+  .img {
+    min-height: calc(100vh - 55px)
+  }
+    min-height: calc(100vh - 55px)
+}
+
+%transition { transition: .3s all; }
+
+$enable-caret: true;
+
+$body-color:                map-get($theme-colors, 'dark');
+$body-bg:                   #fff;
+$spacer: 1rem;
+$border-radius:               .25rem;
+
+$line-height-base:            1.5;
+$line-height-sm:              1.25;
+$line-height-lg:              2;
+
+$headings-margin-bottom:      $spacer / 2;
+$font-family-sans-serif:      "Open Sans", sans-serif;
+$headings-font-weight:        400;
+$headings-line-height:        1.2;
+
+$link-hover-decoration: none;
+$link-decoration: none;
+$breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E");
+
+$form-label-margin-bottom:              .5rem;
+$form-label-font-weight:                bold;
+$form-label-color:                      $muted;
+
+
+$form-text-margin-top:                  .25rem;
+$form-text-font-style:                  null;
+$form-text-font-weight:                 bold;
+$form-text-color:                       $muted;
+$input-padding-y: 10px;
+$input-padding-x: 20px;
+$input-bg: darken(map-get($theme-colors, 'light'), 3);
+$input-border-color: darken(map-get($theme-colors, 'light'), 3);
+$input-border-width: 2px;
+$input-focus-border-color: lighten(map-get($theme-colors, 'primary'), 3);
+
+$input-focus-bg:darken(map-get($theme-colors, 'light'), 4);
+
+$input-focus-box-shadow: none;
+$input-focus-border-color: map-get($theme-colors, 'primary');
+
+
+.btn, .navbar-toggler {
+  box-shadow: none !important;
+  outline: none !important;
+}
+a:focus { outline: none !important; }

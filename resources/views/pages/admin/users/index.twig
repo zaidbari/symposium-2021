@@ -1,0 +1,101 @@
+{% extends "admin/layout.twig" %}
+{% block content  %}
+    <div class="col-md-10 mx-auto">
+        <div class="col-md-12 ms-auto">
+            <div class="input-group mb-3 ">
+                <input type="text" id="search" class="form-control" placeholder="Search users" aria-label="Search" aria-describedby="Search">
+                <button class="btn shadow btn-primary px-3" type="button" id="search_btn"><i class="bi bi-search me-2"></i> Search</button>
+            </div>
+        </div>
+        <div class="row my-4" id="users">
+            {% for user in data %}
+                <div class="col-md-3 single mb-4">
+                    <div class="card">
+                        <div class="card-header border-0 bg-white">
+                            {% if user.status %}
+                                <span class="badge mt-1 bg-primary rounded-pill">Approved</span>
+                            {% else %}
+                                <span class="badge mt-1 bg-danger rounded-pill">Pending</span>
+                            {% endif %}
+                            {% if user.status %}
+                                {% if user.roles == 'admin' %}
+                                    <span class="badge mt-1 bg-danger rounded-pill">Admin</span>
+                                {% else %}
+                                    <span class="badge mt-1 bg-primary rounded-pill">Member</span>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary mt-3">{{ user.name }}</h5>
+                            <p>{{ user.email }}</p>
+                            <p class="text-muted fs-6">{{ user.affiliation }}</p>
+                        </div>
+                        <div class="card-footer border-0 bg-white">
+                            <div class="row g-1">
+                                <div class="col-md-6">
+                                    {% if user.status %}
+                                        <form action="" method="post">
+                                            <input type="hidden" name="id" value="{{ user.id }}" />
+                                            <input type="hidden" name="status" value="0" />
+                                            <button type="submit" class="btn btn-sm btn-danger text-white w-100"> Reject</button>
+                                        </form>
+                                    {% else %}
+                                        <form action="" method="post">
+                                            <input type="hidden" name="id" value="{{ user.id }}" />
+                                            <input type="hidden" name="status" value="1" />
+                                            <button type="submit" class="btn btn-sm btn-success text-white w-100"> Approve</button>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6">
+                                    {% if user.status %}
+                                        {% if user.roles == 'admin' %}
+                                            <form action="" method="post">
+                                                <input type="hidden" name="id" value="{{ user.id }}" />
+                                                <input type="hidden" name="make_admin" value="0" />
+                                                <button type="submit" class="btn btn-danger btn-sm w-100">Remove Admin</button>
+                                            </form>
+                                        {% else %}
+                                            <form action="" method="post">
+                                                <input type="hidden" name="id" value="{{ user.id }}" />
+                                                <input type="hidden" name="make_admin" value="1" />
+                                                <button type="submit" class="btn btn-primary-bg btn-sm w-100">Make Admin</button>
+                                            </form>
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        document.querySelector('#search').addEventListener('keyup', myFunction);
+
+        function myFunction() {
+            // Declare variables
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('search');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("users");
+            li = ul.getElementsByClassName('single');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByClassName("card-title")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+    </script>
+{% endblock %}

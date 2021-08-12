@@ -1,0 +1,69 @@
+{% extends "admin/layout.twig" %}
+{% block content  %}
+
+    <div class="container">
+        <form action="" method="post">
+            <div class="row gy-3">
+                <div class="col-md-4 mb-2">
+                    <label for="day_id" class="form-label">Day</label>
+                    <select name="day_id" id="day_id" class="form-control" required>
+                        {%  for day in days %}
+                        <option value="{{ day.day_id }}" {{ loop.index == 1? 'selected': '' }}>{{ day.day_name }}</option>
+                        {% endfor %}
+                    </select>
+                    {% for err in errors.day %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+                <div class="col-md-4 mb-2">
+                    <label for="start_time" class="form-label">Start Time</label>
+                    <input type="time" class="form-control" id="start_time" name="start_time">
+                    {% for err in errors.start_time %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+                <div class="col-md-4 mb-2">
+                    <label for="end_time" class="form-label">End Time</label>
+                    <input type="time" class="form-control" id="end_time" name="end_time">
+                    {% for err in errors.end_time %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+                <div class="col-md-12 mb-2">
+                    <label for="lecture" class="form-label">Lecture Title</label>
+                    <input type="text" class="form-control" id="lecture" name="lecture">
+                    {% for err in errors.lecture %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+
+                <div class="col-md-8 mb-2">
+                    <label for="type" class="form-label">Type</label>
+                    <select name="type" id="type" class="form-control" required>
+                        {% for type in lecture_types %}
+                        <option value="{{ type.lecture_type_id }}">{{ type.lecture_type }}</option>
+                        {% endfor %}
+                    </select>
+                    {% for err in errors.type %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <label for="speaker_id" class="form-label">Speaker</label>
+                    <select name="speaker_id" id="speaker_id" class="form-control">
+                        {% for speaker in speakers %}
+                        <option value="{{ speaker.id }}">{{ speaker.name }}</option>
+                        {% endfor %}
+                    </select>
+                    {% for err in errors.speaker_id %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+                <div class="col-md-12 mb-2">
+                    <button class="btn-primary btn px-4">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
