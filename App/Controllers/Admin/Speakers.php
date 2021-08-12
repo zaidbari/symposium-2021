@@ -58,13 +58,11 @@ class Speakers extends \Core\Controller
 			$data['name'] = trim($request->param('name'));
 			$data['bio'] = trim($request->param('bio'));
 			$data['affiliation'] = trim($request->param('affiliation'));
-			$data['lecture'] = trim($request->param('lecture'));
 			$val = new Validator();
 			$rules = [
 				'name' => [ 'required', 'minLen' => 2, 'maxLen' => 200 ],
 				'bio' => [ 'maxLen' => 3000 ],
-				'affiliation' => [ 'maxLen' => 1000 ],
-				'lecture' => [ 'maxLen' => 1000 ],
+				'affiliation' => [ 'maxLen' => 1000 ]
 			];
 
 			$val->validate($request->paramsPost(), $rules);

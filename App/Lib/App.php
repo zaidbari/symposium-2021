@@ -28,13 +28,13 @@ class App
 		 * et Whoops as the default error and exception handler used by PHP
 		 */
 
-//		$whoops = new Run();
-//		$whoops->register();
-//		$whoops->pushHandler(new PrettyPageHandler());
-//
-		error_reporting(E_ALL);
-		set_error_handler('Core\Error::errorHandler');
-		set_exception_handler('Core\Error::exceptionHandler');
+		$whoops = new Run();
+		$whoops->register();
+		$whoops->pushHandler(new PrettyPageHandler());
+////
+//		error_reporting(E_ALL);
+//		set_error_handler('Core\Error::errorHandler');
+//		set_exception_handler('Core\Error::exceptionHandler');
 
 
 

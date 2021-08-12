@@ -32,8 +32,10 @@ class Speaker extends \Core\Model
 	 */
 	public static function add( $values = []): bool
 	{
+
 		$db = static::db();
 		$values['position'] = $db->table('speakers')->count() + 1;
+
 		return $db->table('speakers')->insert($values);
 	}
 

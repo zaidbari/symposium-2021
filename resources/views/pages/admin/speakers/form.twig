@@ -18,13 +18,7 @@
                         <span class="text-danger w-100">{{ err }}</span> <br />
                     {% endfor %}
                 </div>
-                <div class="col-md-12 mb-2">
-                    <label for="lecture" class="form-label">Lecture</label>
-                    <input type="text" name="lecture" id="lecture" class="form-control" value="{{ data.lecture }}"  />
-                    {% for err in errors.lecture %}
-                        <span class="text-danger w-100">{{ err }}</span> <br />
-                    {% endfor %}
-                </div>
+
                 <div class="col-md-12 mb-2">
                     <label for="image" class="form-label">Image</label>
                     <input type="file" accept="image/*" name="image" id="image" class="form-control" />
