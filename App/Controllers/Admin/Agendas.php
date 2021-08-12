@@ -105,4 +105,64 @@ class Agendas extends \Core\Controller
 		]);
 
 	}
+
+	/**
+	 * @throws \Pixie\Exception
+	 */
+	public function lecture( $request )
+	{
+		$data = "";
+		 $errors = [];
+		$success = $error = $edit =  false;
+
+		if( $request->param('action') == 'edit' ) {
+			$edit = true;
+			$title = 'Edit lecture';
+			$data = Agenda::oneLecture($request->param('lecture_id'))->lecture_type;
+		}
+		else {
+			$title = 'Create lecture';
+		}
+
+		if($request->method() == 'POST') {
+
+			$lecture_type = trim($request->param('lecture_type'));
+
+			$val = new Validator();
+			$rules = [
+				'lecture_type' => [ 'required' ],
+			];
+
+			$val->validate($request->paramsPost(), $rules);
+			if ( $val->error() ) $errors = $val->error();
+			else {
+
+				if($edit) {
+					if( Agenda::lectureUpdate($request->param('lecture_id'), $lecture_type)) {
+						$success = "Lecture edited successfully.";
+					}
+				} else {
+					if ( Agenda::lectureAdd($lecture_type) ) {
+						$success = "Lecture added successfully";
+						$data = "";
+					}
+				}
+			}
+		}
+
+		View::render('admin/agenda/lecture', [
+			'lecture_type' => $data,
+			'success' => $success,
+			'error' => $error,
+			'errors' => $errors,
+			'meta' => [
+				'title' => $title,
+				'breadcrumbs' => [
+					["name" => "Agenda", "url" => "/admin/agenda", "active" => false],
+					["name" => $edit ? 'Edit': 'Create', "url" => "/agenda/lecture/" . $edit ? 'edit/' . $request->param('lecture_id') : 'create' , "active" => true]
+				]
+			],
+		]);
+
+	}
 }

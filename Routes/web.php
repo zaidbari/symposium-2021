@@ -60,6 +60,7 @@ $router->res('/admin/videos/updatePosition', [ Videos::class, 'updatePosition' ]
 // Agenda
 $router->res('/admin/agenda', [ Agendas::class, 'index|admin' ]);
 $router->res('/admin/agenda/[create|edit:action]/[i:agenda_id]?', [ Agendas::class, 'manage|admin' ]);
+$router->res('/admin/agenda/lecture/[create|edit:action]/[i:lecture_id]?', [ Agendas::class, 'lecture|admin' ]);
 
 // Unauthorized and approval request page
 $router->res('/unauthorized', [ Users::class, 'unauthorized|auth']);

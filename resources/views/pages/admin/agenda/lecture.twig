@@ -1,0 +1,21 @@
+{% extends "admin/layout.twig" %}
+{% block content  %}
+
+    <div class="container">
+        <form action="" method="post">
+            <div class="row gy-3">
+                <div class="col-md-12 mb-2">
+                    <label for="lecture_type" class="form-label">Lecture Category Name</label>
+                    <input type="text" class="form-control" id="lecture_type" name="lecture_type" value="{{ lecture_type }}">
+                    {% for err in errors.lecture_type %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <button class="btn-primary btn px-4">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

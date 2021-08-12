@@ -81,4 +81,35 @@ class Agenda extends Model
 		return $db->table('agenda')->where('agenda_id', $param)->update($data);
 
 	}
+
+	/**
+	 * @throws \Pixie\Exception
+	 */
+	public static function lectureUpdate( $param, string $lecture_type )
+	{
+		$db = static::db();
+		return $db->table('lecture_type')->where('lecture_type_id', $param)->update(['lecture_type' => $lecture_type]);
+
+	}
+
+	/**
+	 * @throws \Pixie\Exception
+	 */
+	public static function lectureAdd( string $lecture_type )
+	{
+		$db = static::db();
+		return $db->table('lecture_type')->insert(['lecture_type' => $lecture_type]);
+
+	}
+
+	/**
+	 * @throws \Pixie\Exception
+	 */
+	public static function oneLecture( $param ) : ?\stdClass
+	{
+		$db = static::db();
+		return $db->table('lecture_type')->where('lecture_type_id', $param)->first();
+
+
+	}
 }
