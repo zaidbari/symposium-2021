@@ -56,50 +56,55 @@ class Users extends Controller
 	/**
 	 * @throws \Pixie\Exception
 	 */
-	public function register( $request )
+//	public function register( $request )
+//	{
+//		self::check();
+//
+//		$success = $error = false;
+//		$errors = $data = [];
+//		if($request->method() == 'POST') {
+//			$data['name'] = trim($request->param('name'));
+//			$data['email'] = trim($request->param('email'));
+//			$password = $data['password'] = trim($request->param('password'));
+//			$confirm_password = trim($request->param('confirm_password'));
+//
+//			$val = new Validator();
+//			$rules = [
+//				'name' => [ 'required', 'minLen' => 2, 'maxLen' => 200 ],
+//				'email' => [ 'required', 'minLen' => 6, 'maxLen' => 150, 'email' ],
+//				'password' => [ 'required', 'minLen' => 8, 'maxLen' => 64 ],
+//				'confirm_password' => ['required', 'minLen' => 8, 'maxLen' => 64]
+//			];
+//
+//
+//			if ( empty($confirm_password) ) {
+//				$errors['confirm_password'] = ["Confirm password field is required"];
+//			} else if ( $confirm_password !== $password ) {
+//				$errors['confirm_password'] = ["Passwords do not match"];
+//			}
+//
+//			$val->validate($request->paramsPost(), $rules);
+//			if ( $val->error() )
+//				$errors = $val->error();
+//			else {
+//				$data['password'] = password_hash(trim($request->param('password')), PASSWORD_DEFAULT);
+//				if ( User::add($data) ) {
+//					$success = "You have been registered successfully";
+//					$data = [];
+//				} else {
+//					$error = "Email already exists";
+//				}
+//			}
+//		}
+//
+//		View::render('auth/register/index', [ 'meta' => [ 'title' => 'Register' ], 'data' => $data, 'error' => $error, 'success' => $success, 'errors' => $errors ]);
+//	}
+
+	public function register(  )
 	{
-		self::check();
+		View::render('auth/register/index', [ 'meta' => [ 'title' => 'Register' ] ]);
 
-		$success = $error = false;
-		$errors = $data = [];
-		if($request->method() == 'POST') {
-			$data['name'] = trim($request->param('name'));
-			$data['email'] = trim($request->param('email'));
-			$password = $data['password'] = trim($request->param('password'));
-			$confirm_password = trim($request->param('confirm_password'));
-
-			$val = new Validator();
-			$rules = [
-				'name' => [ 'required', 'minLen' => 2, 'maxLen' => 200 ],
-				'email' => [ 'required', 'minLen' => 6, 'maxLen' => 150, 'email' ],
-				'password' => [ 'required', 'minLen' => 8, 'maxLen' => 64 ],
-				'confirm_password' => ['required', 'minLen' => 8, 'maxLen' => 64]
-			];
-
-
-			if ( empty($confirm_password) ) {
-				$errors['confirm_password'] = ["Confirm password field is required"];
-			} else if ( $confirm_password !== $password ) {
-				$errors['confirm_password'] = ["Passwords do not match"];
-			}
-
-			$val->validate($request->paramsPost(), $rules);
-			if ( $val->error() )
-				$errors = $val->error();
-			else {
-				$data['password'] = password_hash(trim($request->param('password')), PASSWORD_DEFAULT);
-				if ( User::add($data) ) {
-					$success = "You have been registered successfully";
-					$data = [];
-				} else {
-					$error = "Email already exists";
-				}
-			}
-		}
-
-		View::render('auth/register/index', [ 'meta' => [ 'title' => 'Register' ], 'data' => $data, 'error' => $error, 'success' => $success, 'errors' => $errors ]);
 	}
-
 	public function logout()
 	{
 		session_unset();     // unset $_SESSION variable for the run-time
