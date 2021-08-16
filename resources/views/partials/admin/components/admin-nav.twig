@@ -55,17 +55,8 @@
     </ul>
 </li>
 
-<li class="nav-item dropdown">
-    <a class="nav-link me-2  {{
-    '/abstracts'  in CURRENT_ROUTE
-    ? 'text-primary fw-bold': ''
-    }} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Abstracts
-    </a>
-    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="/admin/abstracts">All abstracts</a></li>
-        <li><a class="dropdown-item" href="/admin/abstracts/create">Add video</a></li>
-    </ul>
+<li class="nav-item">
+    <a class="nav-link me-2 {{ CURRENT_ROUTE == '/admin/abstracts'? 'text-primary fw-bold': '' }}" href="/admin/abstracts">Abstracts</a>
 </li>
 
 
