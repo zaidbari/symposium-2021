@@ -1,0 +1,119 @@
+{% extends "layout.twig" %}
+{% block content  %}
+    <main>
+        <div class="bg-light py-5">
+            <div class="container text-primary text-center"><h3>ePoster abstract submission</h3></div>
+        </div>
+
+        {% if success != false %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <div class="container">
+                    <strong>{{ success }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        {% endif %}
+        <div class="container my-5">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="mb-3 col-md-12">
+                        <label for="title" class="form-label">Abstract Title</label>
+                        <input type="text" id="title" name="title" class="form-control" required>
+                        {% for err in errors.title %}
+                            <span class="text-danger w-100">{{ err }}</span> <br />
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="pdf" class="form-label">Poster PDF</label>
+                        <input type="file" accept="application/pdf" name="pdf" id="pdf" class="form-control" />
+                        {% for err in errors.pdf %}
+                            <span class="text-danger w-100">{{ err }}</span> <br />
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="image" class="form-label">Poster Image</label>
+                        <input type="file" accept="image/*" name="image" id="image" class="form-control" />
+                        {% for err in errors.image %}
+                            <span class="text-danger w-100">{{ err }}</span> <br />
+                        {% endfor %}
+                    </div>
+
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-2 mb-3">
+                        <label for="author_title" class="form-label">Author Title</label>
+                        <input type="text" id="author_title" name="authors[0][author_title]" class="form-control">
+                    </div>
+                    <div class="col-md-10 mb-3">
+                        <label for="name" class="form-label">Author name (Corresponding author)</label>
+                        <input type="text" id="name" name="authors[0][name]" class="form-control">
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="email" class="form-label">Author email</label>
+                        <input type="email" id="email" name="authors[0][email]" class="form-control">
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="affiliation" class="form-label">Author affiliation</label>
+                        <textarea  id="affiliation" name="authors[0][affiliation]" class="form-control"></textarea>
+                    </div>
+                    {% for err in errors.authors %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+                <div id="authors"></div>
+                <div class="col-md-12 my-4">
+                    <button type="button" class="btn btn-warning w-100" id="add_author">Add an author</button>
+                </div>
+                <hr>
+                <div class="col-md-12 mb-2">
+                    <button class="btn-primary btn px-4">Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
+{%  endblock  %}
+
+{% block scripts %}
+
+    <script>
+        let add = document.querySelector('#add_author')
+        let authors = document.querySelector('#authors')
+        let count = 1
+
+        const removeElement = (id) => {
+            document.querySelector('#author-' +id).remove()
+
+        }
+        add.addEventListener('click', () => {
+            let div = document.createElement('div')
+
+            div.innerHTML = `
+                <div class="col-md-2 mb-3">
+                    <label for="author_title" class="form-label">Author Title</label>
+                    <input type="text" id="author_title" name="authors[${count}][author_title]" class="form-control" required>
+                </div>
+                <div class="col-md-10 mb-3">
+                    <label for="name" class="form-label">Author name</label>
+                    <input type="text" id="name" name="authors[${count}][name]" class="form-control" required>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="email" class="form-label">Author email</label>
+                    <input type="email" id="email" name="authors[${count}][email]" class="form-control" required>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="affiliation" class="form-label">Author affiliation</label>
+                    <textarea  id="affiliation" name="authors[${count}][affiliation]" class="form-control" required></textarea>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn  btn-sm btn-danger" onclick="removeElement(${count})"> Remove</button>
+                </div>
+		    `;
+            div.id = `author-${count}`
+            div.classList.add('row')
+            div.classList.add('my-5')
+            authors.appendChild(div)
+            count++
+        })
+
+    </script>
+{% endblock %}

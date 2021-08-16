@@ -1,5 +1,7 @@
 <?php
 
+use App\Controllers\Admin\Posters;
+use App\Controllers\PosterSubmission;
 use App\Controllers\Admin\Agendas;
 use App\Controllers\Admin\Dashboard;
 use App\Controllers\Admin\Pages;
@@ -22,7 +24,10 @@ $router->res('/', [ Guest::class, 'index']);
 $router->res('/speakers', [ Guest::class, 'speakers']);
 $router->res('/contact-us', [ Guest::class, 'contact']);
 $router->res('/productAnalytics', [ Guest::class, 'productAnalytic']);
-$router->res('/abstract', [ Guest::class, 'abstract']);
+
+$router->res('/abstract', [ PosterSubmission::class, 'index' ]);
+$router->res('/abstract/submit', [ PosterSubmission::class, 'submit' ]);
+
 $router->res('/sponsors', [ Guest::class, 'sponsors']);
 $router->res('/sponsors/[i:sponsor_id]', [ Guest::class, 'sponsorSingle']);
 
@@ -47,6 +52,12 @@ $router->res('/admin/sponsors', [ Sponsors::class, 'index|admin' ]);
 $router->res('/admin/sponsors/[create|edit:action]/[i:sponsor_id]?', [ Sponsors::class, 'manage|admin' ]);
 $router->res('/admin/sponsors/[i:sponsor_id]/products/[create|edit:action]/[i:product_id]?', [ Sponsors::class, 'manageProduct|admin' ]);
 $router->res('/admin/sponsors/updatePosition', [ Sponsors::class, 'updatePosition' ]);
+
+// Abstract Management
+$router->res('/admin/abstracts', [ Posters::class, 'index|admin' ]);
+$router->res('/admin/abstracts/updatePosition', [ Sponsors::class, 'updatePosition' ]);
+
+
 
 // Pages
 $router->res('/admin/pages', [ Pages::class, 'index|admin' ]);

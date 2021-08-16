@@ -5,7 +5,11 @@
             <div class="container text-primary text-center"><h3>ePoster abstract submission </h3></div>
         </div>
         <div class="container my-5">
-                    {{ decode(data)|raw }}
+            {{ decode(data)|raw }}
+            
+            <div class="my-5">
+                <a href="/abstract/submit" class="btn w-100 btn-primary btn-lg">Submit eposter abstract</a>
+            </div>
         </div>
     </main>
 {%  endblock  %}

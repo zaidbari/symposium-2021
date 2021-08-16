@@ -92,14 +92,6 @@ class Guest extends Controller
 		]);
 	}
 
-	public function abstract()
-	{
-		View::render('guest/abstract/index', [
-			'data' => Page::one(2)['description'],
-			'meta' => ['title' => 'Abstract submission']
-		]);
-	}
-
 	/**
 	 * @throws \Pixie\Exception
 	 */
