@@ -20,6 +20,12 @@ class Poster extends \Core\Model
 		return (array) $db->table('abstracts')->get();
 	}
 
+	public static function published()
+	{
+		$db = static::db();
+		return (array) $db->table('abstracts')->where('published', '=', true)->get();
+	}
+
 	public static function addAuthors( $data )
 	{
 		$db = static::db();

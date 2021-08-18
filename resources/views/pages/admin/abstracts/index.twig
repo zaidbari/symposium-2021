@@ -48,13 +48,13 @@
                                         <th scope="col">AFFILIATION</th>
                                     </thead>
                                     <tbody>
-                                    {% for author in abstract.authors %}
-                                        <tr>
-                                            <td>{{ author.author_title }} </td>
-                                            <td>{{ author.name }} <span class="text-danger fw-bold">{{ author.corres ? '*': '' }}</span></td>
-                                            <td>{{ author.email }}</td>
-                                            <td>{{ author.affiliation }}</td>
-                                        </tr>
+                                        {% for author in abstract.authors %}
+                                            <tr>
+                                                <td>{{ author.author_title }} </td>
+                                                <td>{{ author.name }} <span class="text-danger fw-bold">{{ author.corres ? '*': '' }}</span></td>
+                                                <td>{{ author.email }}</td>
+                                                <td>{{ author.affiliation }}</td>
+                                            </tr>
                                         {% endfor %}
                                     </tbody>
                                 </table>

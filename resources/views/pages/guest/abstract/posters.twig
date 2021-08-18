@@ -1,0 +1,43 @@
+{% extends "layout.twig" %}
+{% block content  %}
+    <main>
+        <div class="bg-light py-5">
+            <div class="container text-primary text-center"><h3>ePoster Abstracts</h3></div>
+        </div>
+        <div class="container my-5">
+            <div class="row">
+                {% for abstract in data %}
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="ratio ratio-16x9">
+                                <img src="/files/posters/{{ abstract[0].image }}" loading="lazy" class="w-100" alt="{{ abstract[0].title }}" />
+                            </div>
+                            <div class="card-body">
+                                <h3 class="h4">{{ abstract[0].title }}</h3>
+                                <p class="fw-bold text-primary h5">Authors: </p>
+                                {% for author in abstract.authors %}
+                                    <p>
+                                        <span class="fw-bold">{{ author.author_title }} {{ author.name }}</span>
+                                        <span class="text-danger fw-bold">{{ author.corres ? '*': '' }}</span>
+                                        <br />
+                                        {{ author.affiliation }}
+                                    </p>
+                                {% endfor %}
+                            </div>
+                            <div class="card-footer py-2 bg-white border-0">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a href="/files/posters/{{ abstract[0].image }}" target="_blank" class="btn w-100 btn-primary btn-sm">View Image</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="/files/posters/{{ abstract[0].pdf }}" target="_blank" class="btn w-100 btn-danger btn-sm">View PDF</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+{%  endblock  %}

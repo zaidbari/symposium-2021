@@ -21,6 +21,27 @@ class PosterSubmission extends \Core\Controller
 		]);
 	}
 
+
+	public function posters(  )
+	{
+		$data =  Poster::published();
+
+		$abstracts = [];
+		if(sizeof($data) > 0)
+			foreach ($data as  $abstract) {
+				array_push($abstracts, [
+					$abstract,
+					'authors' => Poster::getAuthors($abstract->id)
+				]);
+			}
+
+		View::render('guest/abstract/posters', [
+			'data' => $abstracts,
+			'meta' => ['title' => 'Posters']
+		]);
+	}
+
+
 	public function submit($request)
 	{
 		$data = $errors = [];

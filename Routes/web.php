@@ -26,6 +26,7 @@ $router->res('/contact-us', [ Guest::class, 'contact']);
 $router->res('/productAnalytics', [ Guest::class, 'productAnalytic']);
 
 $router->res('/abstract', [ PosterSubmission::class, 'index' ]);
+$router->res('/posters', [ PosterSubmission::class, 'posters' ]);
 $router->res('/abstract/submit', [ PosterSubmission::class, 'submit' ]);
 
 $router->res('/sponsors', [ Guest::class, 'sponsors']);
