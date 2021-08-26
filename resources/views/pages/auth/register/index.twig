@@ -32,13 +32,15 @@
                 <div class="row">
                     <div class="col-md-8">
 
-                        <p class="lead"><span class="text-primary">Registration charges </span> <span class="fw-bold">AED - 350</span><br>
-                            <span class="text-danger">Early Bird Discounted charges</span> <span class="fw-bold"> AED - 200</span><br>
+                        <p class="lead"><span class="text-primary">Physician - Registration Charges </span> <span class="fw-bold">AED - 350</span><br>
+                            <span class="text-danger">Non-Physician Registration Charges</span> <span class="fw-bold"> AED - 250</span><br>
+                            <span class="text-primary">Early Bird Discounted charges</span> <span class="fw-bold"> AED - 200</span><br>
                             (Early Bird discount is valid until<span class="fw-bold"> 30 September </span>)</p>
                         <p class="lead">
                             Scan the Code to pay Early Bird Discounted Registration Charges <span class="fw-bold"> (200 AED) </span>
                         </p>
                         <a href="https://secure.2checkout.com/checkout/buy?merchant=103055722&tpl=default&prod=10011&qty=1" target="_blank" class="btn btn-primary btn-lg">Pay now</a>
+                        <p class="my-3">Save the payment receipt to be attached during registration process.</p>
                     </div>
                     <div class="col-md-4">
                         <img src="/resources/assets/images/svg/barcode.jpeg" alt="" class="img-fluid">
@@ -52,70 +54,3 @@
         </div>
     </main>
 {%  endblock  %}
-
-
-{#{% extends "layout.twig" %}#}
-{#{% block content  %}#}
-{#    <div class="register">#}
-{#        <div class="row mx-0 px-0">#}
-{#            <div class="col-md-4 align-self-center offset-1 right">#}
-
-{#                <form action="" method="post">#}
-{#                    {% if success != false %}#}
-{#                        <div class="alert alert-success alert-dismissible fade show" role="alert">#}
-{#                            <div class="container">#}
-{#                                <strong>{{ success }}</strong>#}
-{#                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    {% endif %}#}
-{#                    {% if error != false %}#}
-{#                        <div class="alert alert-danger alert-dismissible fade show" role="alert">#}
-{#                            <div class="container">#}
-{#                                <strong>{{ error }}</strong>#}
-{#                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    {% endif %}#}
-
-{#                    <h3 class="mt-5 mb-3 fw-bold text-primary">Sign Up</h3>#}
-{#                    <p class="lead mb-5 fw-bold text-muted">Enter your details to create your account</p>#}
-{#                    <div class="mb-3">#}
-{#                        <label for="name" class="form-label">Name</label>#}
-{#                        <input type="text" name="name" id="name" class="form-control" required/>#}
-{#                        {% for err in errors.name %}#}
-{#                            <span class="text-danger w-100">{{ err }}</span> <br />#}
-{#                        {% endfor %}#}
-{#                    </div>#}
-{#                    <div class="mb-3">#}
-{#                        <label for="email" class="form-label">Email address</label>#}
-{#                        <input type="email" name="email" id="email" class="form-control" required />#}
-{#                        {% for err in errors.email %}#}
-{#                            <span class="text-danger w-100">{{ err }}</span> <br />#}
-{#                        {% endfor %}#}
-{#                    </div>#}
-{#                    <div class="mb-3">#}
-{#                        <label for="password" class="form-label">Password</label>#}
-{#                        <input type="password" name="password" id="password" class="form-control" required/>#}
-{#                        {% for err in errors.password %}#}
-{#                            <span class="text-danger w-100">{{ err }}</span>#}
-{#                        {% endfor %}#}
-{#                    </div>#}
-{#                    <div class="mb-3">#}
-{#                        <label for="confirm_password" class="form-label">Confirm password</label>#}
-{#                        <input type="password" name="confirm_password" id="confirm_password" class="form-control" required/>#}
-{#                        {% for err in errors.confirm_password %}#}
-{#                            <span class="text-danger w-100">{{ err }}</span>#}
-{#                        {% endfor %}#}
-{#                    </div>#}
-{#                    <div class="mb-3">#}
-{#                        <button class="btn btn-primary px-4">Register</button>#}
-{#                    </div>#}
-{#                </form>#}
-{#            </div>#}
-{#            <div class="col-md-4 offset-3 img d-flex bg-primary">#}
-{#                <img src="/resources/assets/images/shapes/login.svg" class="img-fluid" alt="">#}
-{#            </div>#}
-
-{#    </div>#}
-{#{% endblock %}#}
