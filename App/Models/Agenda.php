@@ -51,11 +51,6 @@ class Agenda extends Model
 		if(!empty($speaker_id)) {
 			$values['speaker_id'] = $speaker_id;
 		}
-		$s = $values['start_time'];
-		$e = $values['end_time'];
-
-		$values['start_time'] = strtotime($s);
-		$values['end_time'] = strtotime($e);
 
 		return $db->table('agenda')->insert($values);
 	}
