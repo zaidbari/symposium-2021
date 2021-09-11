@@ -48,34 +48,34 @@
     </main>
 {%  endblock  %}
 
-{% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{#{% block scripts %}#}
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>#}
 
-    <script>
-        $('.check-time').each(function(){
-            var utcSeconds = $('.start-time', this).html();
-            var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
-            d.setUTCSeconds(utcSeconds);
-            var startTime = formatAMPM(d);
+{#    <script>#}
+{#        $('.check-time').each(function(){#}
+{#            var utcSeconds = $('.start-time', this).html();#}
+{#            var d = new Date(0); // The 0 there is the key, which sets the date to the epoch#}
+{#            d.setUTCSeconds(utcSeconds);#}
+{#            var startTime = formatAMPM(d);#}
 
-            utcSeconds = $('.end-time', this).html();
-            d = new Date(0); // The 0 there is the key, which sets the date to the epoch
-            d.setUTCSeconds(utcSeconds);
-            var endTime = formatAMPM(d);
+{#            utcSeconds = $('.end-time', this).html();#}
+{#            d = new Date(0); // The 0 there is the key, which sets the date to the epoch#}
+{#            d.setUTCSeconds(utcSeconds);#}
+{#            var endTime = formatAMPM(d);#}
 
-            $('.local-time', this).html(startTime + ' - ' + endTime + ' ' + /\((.*)\)/.exec(d.toString())[1]);
-        });
+{#            $('.local-time', this).html(startTime + ' - ' + endTime + ' ' + /\((.*)\)/.exec(d.toString())[1]);#}
+{#        });#}
 
-        function formatAMPM(date) {
-            var hours = date.getHours();
-            var minutes = date.getMinutes();
-            var ampm = hours >= 12 ? 'pm' : 'am';
-            hours = hours % 12;
-            hours = hours ? hours : 12; // the hour '0' should be '12'
-            hours = hours < 10 ? '0'+hours : hours;
-            minutes = minutes < 10 ? '0'+minutes : minutes;
-            var strTime = hours + ':' + minutes + ' ' + ampm;
-            return strTime;
-        }
-    </script>
-{% endblock %}
+{#        function formatAMPM(date) {#}
+{#            var hours = date.getHours();#}
+{#            var minutes = date.getMinutes();#}
+{#            var ampm = hours >= 12 ? 'pm' : 'am';#}
+{#            hours = hours % 12;#}
+{#            hours = hours ? hours : 12; // the hour '0' should be '12'#}
+{#            hours = hours < 10 ? '0'+hours : hours;#}
+{#            minutes = minutes < 10 ? '0'+minutes : minutes;#}
+{#            var strTime = hours + ':' + minutes + ' ' + ampm;#}
+{#            return strTime;#}
+{#        }#}
+{#    </script>#}
+{#{% endblock %}#}
