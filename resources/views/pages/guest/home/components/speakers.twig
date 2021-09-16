@@ -1,30 +1,29 @@
 <div class="bg-primary">
 
-<div class="container my-5 py-5">
-    <h2 class="text-center text-white my-5 pb-5">Meet the speakers</h2>
-<div class="row">
-    {% if speakers|length > 0 %}
-    {% for speaker in speakers %}
-        {% if speaker.display_home %}
-            <div class="col-md-3 mb-3">
-                <div class="card text-center bg-primary shadow-none border border-3 border-white card-body">
-                    <div class="p-md-4">
-                        <div class="ratio ratio-1x1">
-                            <img loading="lazy" src="/files/speakers/{{ speaker.image }}" style="border-radius: 100%" alt="">
+    <div class="container my-5 py-5">
+        <h2 class="text-center text-white my-5 pb-5">Meet the speakers</h2>
+        <div class="row">
+            {% if speakers|length > 0 %}
+            {% for speaker in speakers %}
+                {% if speaker.display_home %}
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-center bg-primary shadow-none border border-3 border-white card-body">
+                            <div class="p-md-4">
+                                <div class="ratio ratio-1x1">
+                                    <img loading="lazy" src="/files/speakers/{{ speaker.image }}" style="border-radius: 100%" alt="">
+                                </div>
+                            </div>
+                            <h4 class="text-white">{{ speaker.name }}</h4>
                         </div>
                     </div>
-                    <h4 class="text-white">{{ speaker.name }}</h4>
-                </div>
+                {% endif %}
+            {% endfor %}
+                {% else %}
+                <div class="text-center">No speakers</div>
+            {% endif %}
+            <div class="text-center my-5 pt-5">
+                <a href="/speakers" class="btn btn-lg btn-dark">View all speakers</a>
             </div>
-        {% endif %}
-    {% endfor %}
-        {% else %}
-        <div class="text-center">No speakers</div>
-    {% endif %}
-    <div class="text-center my-5 pt-5">
-        <a href="/speakers" class="btn btn-lg btn-dark">View all speakers</a>
+        </div>
     </div>
-
-</div>
-</div>
 </div>
