@@ -55,6 +55,7 @@ class Agendas extends \Core\Controller
 		}
 
 		if($request->method() == 'POST') {
+
 			$data['start_time'] = strtotime(trim($request->param('start_time')));
 			$data['end_time'] = strtotime(trim($request->param('end_time')));
 			$data['type'] = trim($request->param('type'));

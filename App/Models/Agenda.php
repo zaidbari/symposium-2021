@@ -54,6 +54,7 @@ class Agenda extends Model
 
 		return $db->table('agenda')->insert($values);
 	}
+	
 
 	/**
 	 * @throws \Pixie\Exception
