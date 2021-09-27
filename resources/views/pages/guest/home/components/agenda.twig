@@ -1,13 +1,13 @@
 <div class="container pt-5 my-5" id="agenda">
-    <h2 class="py-5 text-center ">Conference Agenda</h2>
-    <nav class="d-none d-sm-block">
+    <h2 class="py-5 text-center">Conference Agenda</h2>
+    <nav class="">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
             {% for key, d in data %}
                 <button class="nav-link {{ loop.index == 1 ? 'active': ''}} fw-bold text-primary px-5" id="nav-{{ loop.index }}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{ loop.index }}" type="button" role="tab" aria-controls="nav-{{ loop.index }}" aria-selected="true">{{ key }}</button>
             {% endfor %}
         </div>
     </nav>
-    <div class="tab-content d-none d-sm-block" id="nav-tabContent">
+    <div class="tab-content" id="nav-tabContent">
         {% for key, d in data %}
             <div class="tab-pane {{ loop.index == 1 ? 'fade show active': ''}} " id="nav-{{ loop.index }}" role="tabpanel" aria-labelledby="nav-{{ loop.index }}-tab">
                 {% for key, day in d %}
@@ -15,7 +15,7 @@
                     {% for agenda in day %}
                     <div class="card my-4 card-body">
                         <div class="row">
-                            <div class="col-md-1 align-self-center">
+                            <div class="col-md-1 col-4 mb-3 align-self-center">
                                 {% if agenda.image != null %}
                                     <div class="ratio ratio-1x1">
                                         <img src="/files/speakers/{{ agenda.image }}" class="img-fluid border-3 border border-primary" style="border-radius: 100%;" alt="">

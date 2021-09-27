@@ -21,9 +21,7 @@
         {% for sponsor in sponsors %}
             <div class="col-md-2 col-6 mb-4 align-self-center text-center p-md-4">
                 <a target="_blank" href="/sponsors/{{ sponsor.id }}">
-                    <img loading="lazy" {%  if sponsor.id == 2 %}style="height: 90px"{% endif%}
-                         src="/files/sponsors/{{ sponsor.id == 1? 'vriton.png' : sponsor.logo }}"
-                         class="img-fluid" alt="">
+                    <img loading="lazy" src="/files/sponsors/{{ sponsor.logo }}" class="img-fluid" alt="">
                 </a>
             </div>
         {% endfor %}
