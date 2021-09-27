@@ -12,7 +12,7 @@
             <div class="tab-pane {{ loop.index == 1 ? 'fade show active': ''}} " id="nav-{{ loop.index }}" role="tabpanel" aria-labelledby="nav-{{ loop.index }}-tab">
                 {% for key, day in d %}
                 <h3 class="alert-primary alert mt-4">{{ key }}</h3>
-                    {% for agenda in day %}
+                    {% for agenda in day|sort((a, b) => a.start_time <=> b.start_time) %}
                     <div class="card my-4 card-body">
                         <div class="row">
                             <div class="col-md-1 col-4 mb-3 align-self-center">
