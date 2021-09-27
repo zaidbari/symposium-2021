@@ -4,10 +4,28 @@
     <div class="container">
         <form action="" method="post" enctype="multipart/form-data">
             <div class="row gy-3">
-                <div class="col-md-12 mb-2">
+                <div class="col-md-8 mb-2">
                     <label for="name" class="form-label">Speaker Name</label>
                     <input type="text" name="name" id="name" class="form-control" value="{{ data.name }}" required />
                     {% for err in errors.name %}
+                        <span class="text-danger w-100">{{ err }}</span> <br />
+                    {% endfor %}
+                </div>
+                <div class="col-md-4 mb-2">
+                    <label for="country" class="form-label">Speaker Country</label>
+                    <select name="country" id="country" class="form-control" required>
+                        <option value="us" {{ data.country == 'us' ? 'selected' : '' }}>United States Of America</option>
+                        <option value="gb" {{ data.country == 'gb' ? 'selected' : '' }}>United Kingdom</option>
+                        <option value="au" {{ data.country == 'au' ? 'selected' : '' }}>Australia</option>
+                        <option value="sg" {{ data.country == 'sg' ? 'selected' : '' }}>Singapore</option>
+                        <option value="sa" {{ data.country == 'sa' ? 'selected' : '' }}>Saudi Arabia</option>
+                        <option value="de" {{ data.country == 'de' ? 'selected' : '' }}>Germany</option>
+                        <option value="qa" {{ data.country == 'qa' ? 'selected' : '' }}>Qatar</option>
+                        <option value="ae" {{ data.country == 'ae' ? 'selected' : '' }}>UAE</option>
+                        <option value="om" {{ data.country == 'om' ? 'selected' : '' }}>Oman</option>
+                        <option value="jo" {{ data.country == 'jo' ? 'selected' : '' }}>Jordan</option>
+                    </select>
+                    {% for err in errors.country %}
                         <span class="text-danger w-100">{{ err }}</span> <br />
                     {% endfor %}
                 </div>

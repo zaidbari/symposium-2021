@@ -14,6 +14,7 @@
                     <th scope="col" style="width: 50px">#</th>
                     <th scope="col">Name</th>
                     <th scope="col" style="width: 650px">Affiliation</th>
+                    <th scope="col" style="width: 50px">Country</th>
                     <th scope="col" style="width: 200px">Actions</th>
                 </tr>
                 </thead>
@@ -29,6 +30,7 @@
                         </td>
                         <td>{{ speaker.name }}</td>
                         <td>{{ speaker.affiliation }}</td>
+                        <td><img src="/resources/assets/images/flags/{{ speaker.country }}.svg" style="width: 50px" class="d-block mx-auto shadow rounded" alt=""></td>
                         <td>
                             <a href="/admin/speakers/edit/{{ speaker.id }}" class="btn btn-warning btn-sm">Edit</a>
                             <form action="" method="post" class="d-inline">
