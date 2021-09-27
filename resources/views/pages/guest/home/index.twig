@@ -2,80 +2,23 @@
 {% block content  %}
     <main class="home">
         {% include "guest/home/components/header.twig" %}
-{#        <div class="container mt-5 pt-5">#}
-{#            <div class="row">#}
-{#                <div class="col-md-6">#}
-{#                    <div class="row">#}
-{#                        <div class="col-md-6 align-self-center">#}
-{#                            <div class="mb-4 rounded-3 shadow p-md-5 p-4 bg-primary text-white text-center">#}
-{#                                <div class="display-2 fw-bold">02</div>#}
-{#                                <p class="lead mb-0">DAYS</p>#}
-{#                            </div>#}
-{#                            <div class="p-md-5 rounded-3 shadow p-4 bg-primary text-white text-center">#}
-{#                                <div class="display-2 fw-bold">15</div>#}
-{#                                <p class="lead mb-0">SPEAKERS</p>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="col-md-6 mt-5">#}
-{#                            <div class="mb-4 mt-md-5 rounded-3 shadow p-md-5 p-4 bg-primary text-white text-center">#}
-{#                                <div class="display-2 fw-bold">17</div>#}
-{#                                <p class="lead mb-0">TALKS</p>#}
-{#                            </div>#}
-{#                            <div class="p-md-5 rounded-3 shadow p-4 bg-primary text-white text-center">#}
-{#                                <div class="display-2 fw-bold">6</div>#}
-{#                                <p class="lead mb-0">SPONSORS</p>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-md-6 align-self-center">#}
-{#                    <h2 class="my-3">Conference Objectives</h2>#}
-{#                    <ol class="lead text-muted list-group list-group-flush">#}
-{#                        <li class="list-group-item text-muted"> Update about neurogenetic disorders clinical approach, diagnosis & management</li>#}
-{#                        <li class="list-group-item text-muted"> Update about leukodystrophies</li>#}
-{#                        <li class="list-group-item text-muted"> Update about genetic causes and treatment of epileptic encehalopathies</li>#}
-{#                        <li class="list-group-item text-muted"> Over view and update about neurotransmitters disorders</li>#}
-{#                        <li class="list-group-item text-muted"> Update about treatment of metabolic epilepsies</li>#}
-{#                        <li class="list-group-item text-muted"> Clinical approach and treatment to pediatric movement disorders</li>#}
-{#                    </ol>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
 
+        <div class="container-fluid">
+            <div class="row g-3 justify-content-center">
+                <div class="col-3 col-md-1"><img src="/resources/assets/images/flags/us.svg" class="img-fluid rounded shadow" alt=""></div>
+                <div class="col-3 col-md-1"><img src="/resources/assets/images/flags/gb.svg" class="img-fluid rounded shadow" alt=""></div>
+                <div class="col-3 col-md-1"><img src="/resources/assets/images/flags/au.svg" class="img-fluid rounded shadow" alt=""></div>
+                <div class="col-3 col-md-1"><img src="/resources/assets/images/flags/sg.svg" class="img-fluid rounded shadow" alt=""></div>
+                <div class="col-3 col-md-1"><img src="/resources/assets/images/flags/sa.svg" class="img-fluid rounded shadow" alt=""></div>
+                <div class="col-3 col-md-1"><img src="/resources/assets/images/flags/de.svg" class="img-fluid rounded shadow" alt=""></div>
+                <div class="col-3 col-md-1"><img src="/resources/assets/images/flags/qa.svg" class="img-fluid rounded shadow" alt=""></div>
+                <div class="col-3 col-md-1"><img src="/resources/assets/images/flags/ae.svg" class="img-fluid rounded shadow" alt=""></div>
+                <div class="col-3 col-md-1"><img src="/resources/assets/images/flags/om.svg" class="img-fluid rounded shadow" alt=""></div>
+                <div class="col-3 col-md-1"><img src="/resources/assets/images/flags/jo.svg" class="img-fluid rounded shadow" alt=""></div>
+            </div>
+        </div>
         {% include "guest/home/components/speakers.twig" %}
         {% include "guest/home/components/agenda.twig" %}
 
     </main>
 {%  endblock  %}
-
-{#{% block scripts %}#}
-{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>#}
-
-{#    <script>#}
-{#        $('.check-time').each(function(){#}
-{#            var utcSeconds = $('.start-time', this).html();#}
-{#            var d = new Date(0); // The 0 there is the key, which sets the date to the epoch#}
-{#            d.setUTCSeconds(utcSeconds);#}
-{#            var startTime = formatAMPM(d);#}
-
-{#            utcSeconds = $('.end-time', this).html();#}
-{#            d = new Date(0); // The 0 there is the key, which sets the date to the epoch#}
-{#            d.setUTCSeconds(utcSeconds);#}
-{#            var endTime = formatAMPM(d);#}
-
-{#            $('.local-time', this).html(startTime + ' - ' + endTime + ' ' + /\((.*)\)/.exec(d.toString())[1]);#}
-{#        });#}
-
-{#        function formatAMPM(date) {#}
-{#            var hours = date.getHours();#}
-{#            var minutes = date.getMinutes();#}
-{#            var ampm = hours >= 12 ? 'pm' : 'am';#}
-{#            hours = hours % 12;#}
-{#            hours = hours ? hours : 12; // the hour '0' should be '12'#}
-{#            hours = hours < 10 ? '0'+hours : hours;#}
-{#            minutes = minutes < 10 ? '0'+minutes : minutes;#}
-{#            var strTime = hours + ':' + minutes + ' ' + ampm;#}
-{#            return strTime;#}
-{#        }#}
-{#    </script>#}
-{#{% endblock %}#}
