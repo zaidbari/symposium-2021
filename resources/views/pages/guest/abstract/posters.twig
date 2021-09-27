@@ -17,7 +17,7 @@
                                 <p class="fw-bold text-primary h5">Authors: </p>
                                 {% for author in abstract.authors %}
                                     <p>
-                                        <span class="fw-bold">{{ author.author_title }} {{ author.name }}</span>
+                                        <span class="fw-bold">{{ author.name }}</span>
                                         <span class="text-danger fw-bold">{{ author.corres ? '*': '' }}</span>
                                         <br />
                                         {{ author.affiliation }}
