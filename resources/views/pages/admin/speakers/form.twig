@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-md-12 mb-2">
                     <label for="bio" class="form-label">Bio</label>
-                    <textarea name="bio" id="bio" class="form-control" rows="4">{{ data.bio }}</textarea>
+                    <textarea name="bio" id="bio" class="form-control" rows="4">{{ data.bio|raw }}</textarea>
                     {% for err in errors.bio %}
                         <span class="text-danger w-100">{{ err }}</span> <br />
                     {% endfor %}
@@ -57,4 +57,30 @@
             </div>
         </form>
     </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script
+            type="text/javascript"
+            src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
+            referrerpolicy="origin">
+    </script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '#bio',
+            height: 600,
+            plugins: [
+                'advlist autolink link lists charmap preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking',
+                'table paste help'
+            ],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link | preview fullpage | ' +
+                'forecolor backcolor | help',
+
+            menubar: 'edit view insert format tools table help',
+        });
+    </script>
+
 {% endblock %}

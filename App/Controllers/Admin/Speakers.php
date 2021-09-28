@@ -56,7 +56,7 @@ class Speakers extends \Core\Controller
 
 		if($request->method() == 'POST') {
 			$data['name'] = trim($request->param('name'));
-			$data['bio'] = trim($request->param('bio'));
+			$data['bio'] = htmlentities(trim($request->param('bio')));
 			$data['affiliation'] = trim($request->param('affiliation'));
 			$data['country'] = trim($request->param('country'));
 
