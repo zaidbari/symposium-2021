@@ -7,9 +7,10 @@ namespace App\Controllers\Admin;
 use App\Lib\Upload;
 use App\Lib\Validator;
 use App\Models\Sponsor;
+use Core\Controller;
 use Core\View;
 
-class Sponsors extends \Core\Controller
+class Sponsors extends Controller
 {
 	/**
 	 * @throws \Pixie\Exception

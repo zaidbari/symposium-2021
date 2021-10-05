@@ -92,6 +92,14 @@ class Guest extends Controller
 		]);
 	}
 
+	public function venue()
+	{
+		View::render('guest/venue/index', [
+			'data' => Page::one(3)['description'],
+			'meta' => ['title' => 'Venue']
+		]);
+	}
+
 	/**
 	 * @throws \Pixie\Exception
 	 */

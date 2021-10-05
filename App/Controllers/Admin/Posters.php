@@ -5,9 +5,10 @@ namespace App\Controllers\Admin;
 
 
 use App\Models\Poster;
+use Core\Controller;
 use Core\View;
 
-class Posters extends \Core\Controller
+class Posters extends Controller
 {
 
 	public function index( $request )

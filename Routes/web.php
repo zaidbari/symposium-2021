@@ -23,6 +23,7 @@ $router = new Router();
 $router->res('/', [ Guest::class, 'index']);
 $router->res('/speakers', [ Guest::class, 'speakers']);
 $router->res('/contact-us', [ Guest::class, 'contact']);
+$router->res('/venue', [ Guest::class, 'venue']);
 $router->res('/productAnalytics', [ Guest::class, 'productAnalytic']);
 
 $router->res('/abstract', [ PosterSubmission::class, 'index' ]);

@@ -6,9 +6,10 @@ namespace App\Controllers\Admin;
 
 use App\Lib\Validator;
 use App\Models\Page;
+use Core\Controller;
 use Core\View;
 
-class Pages extends \Core\Controller
+class Pages extends Controller
 {
 
 	/**

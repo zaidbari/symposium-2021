@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Controllers\Auth;
-
 
 use App\Lib\Validator;
 use App\Models\User;
@@ -103,8 +101,8 @@ class Users extends Controller
 	public function register(  )
 	{
 		View::render('auth/register/index', [ 'meta' => [ 'title' => 'Register' ] ]);
-
 	}
+
 	public function logout()
 	{
 		session_unset();     // unset $_SESSION variable for the run-time

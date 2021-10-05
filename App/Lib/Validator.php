@@ -8,30 +8,21 @@ namespace App\Lib;
 class Validator {
 
 	private array $_errors = [];
-
-
+	
 	public function validate($src, $rules = [] ){
 
 		foreach($src as $item => $item_value){
 			if(key_exists($item, $rules)){
-				foreach($rules[$item] as $rule => $rule_value){
+				foreach($rules[$item] as $rule => $rule_value) {
 
-					if(is_int($rule))
-						$rule = $rule_value;
-
+					if(is_int($rule)) $rule = $rule_value;
 					switch ($rule){
 						case 'required':
-							if(empty($item_value) && $rule_value){
-								$this->addError($item,ucwords($item). ' required');
-							}
+							if(empty($item_value) && $rule_value) $this->addError($item,ucwords($item). ' required');
 							break;
-
 						case 'minLen':
-							if(strlen($item_value) < $rule_value){
-								$this->addError($item, ucwords($item). ' should be minimum '.$rule_value. ' characters');
-							}
+							if(strlen($item_value) < $rule_value) $this->addError($item, ucwords($item). ' should be minimum '.$rule_value. ' characters');
 							break;
-
 						case 'maxLen':
 							if(strlen($item_value) > $rule_value){
 								$this->addError($item, ucwords($item). ' should be maximum '.$rule_value. ' characters');

@@ -8,7 +8,8 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-pdo": "*",
-        "usmanhalalit/pixie": "^2.0"
+        "usmanhalalit/pixie": "^2.0",
+      "ext-iconv": "*"
     },
     "autoload": {
         "psr-4": {
