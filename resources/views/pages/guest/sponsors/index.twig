@@ -7,50 +7,74 @@
         <div class="container text-center my-5">
             <h2 class="text-primary mt-5">MEGMA Sponsor</h2>
             <div class="row justify-content-center">
-                <div class="col-md-2 border py-2"><p class="h4">Veriton</p></div>
+                {%  for sponsor in data %}
+                    {% if sponsor.sponsor_type == 'd' %}
+                        <div class="col-md-4">
+                            <a href="/sponsors/{{ sponsor.id }}">
+                                <div class="card shadow">
+                                    <div class="card-header bg-white text-primary"><h2>{{ sponsor.name }}</h2></div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <img src="/files/sponsors/{{ sponsor.logo }}" loading="lazy" class="img-fluid" alt="{{ sponsor.name }} logo">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
 
             <h2 class="text-primary mt-5">Platinum Sponsor</h2>
             <div class="row justify-content-center">
-                <div class="col-md-2 border py-2"><p class="h4">Takeda</p></div>
-                <div class="col-md-2 border py-2"><p class="h4">Sanofi</p></div>
-                <div class="col-md-2 border py-2"><p class="h4">Biomarine</p></div>
-                <div class="col-md-2 border py-2"><p class="h4">Genphram</p></div>
-                <div class="col-md-2 border py-2"><p class="h4">Novartis</p></div>
-                <div class="col-md-2 border py-2"><p class="h4">PTC</p></div>
-                <div class="col-md-2 border py-2"><p class="h4">Biologix</p></div>
-            </div>
-            <h2 class="text-primary mt-5">Gold Sponsorship</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-4 border py-2"><p class="h4">Recordati Rare Diseases</p></div>
-            </div>
-            <h2 class="text-primary mt-5">Silver Sponsorship</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-2 border py-2"><p class="h4">Amrty</p></div>
-                <div class="col-md-2 border py-2"><p class="h4">Sobi</p></div>
-                <div class="col-md-2 border py-2"><p class="h4">Immedica</p></div>
-            </div>
-            <div class="row">
                 {%  for sponsor in data %}
-                    <div class="
-                        my-4
-                        {% if sponsor.sponsor_type == 'a' %} col-md-12
-                        {% elseif sponsor.sponsor_type == 'b' %} col-md-6
-                        {% else %} col-md-4
-                        {% endif %}"
-                    >
-                        <a href="/sponsors/{{ sponsor.id }}">
-                            <div class="card shadow">
-                                <div class="card-header bg-white text-primary"><h2>{{ sponsor.name }}</h2></div>
-                                <div class="card-body d-flex align-items-center">
-                                    <img src="/files/sponsors/{{ sponsor.logo }}" loading="lazy" class="img-fluid" alt="{{ sponsor.name }} logo">
+                    {% if sponsor.sponsor_type == 'a' %}
+                        <div class="col-md-4">
+                            <a href="/sponsors/{{ sponsor.id }}">
+                                <div class="card shadow">
+                                    <div class="card-header bg-white text-primary"><h2>{{ sponsor.name }}</h2></div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <img src="/files/sponsors/{{ sponsor.logo }}" loading="lazy" class="img-fluid" alt="{{ sponsor.name }} logo">
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
 
+            <h2 class="text-primary mt-5">Gold Sponsorship</h2>
+            <div class="row justify-content-center">
+                {%  for sponsor in data %}
+                    {% if sponsor.sponsor_type == 'b' %}
+                        <div class="col-md-4">
+                            <a href="/sponsors/{{ sponsor.id }}">
+                                <div class="card shadow">
+                                    <div class="card-header bg-white text-primary"><h2>{{ sponsor.name }}</h2></div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <img src="/files/sponsors/{{ sponsor.logo }}" loading="lazy" class="img-fluid" alt="{{ sponsor.name }} logo">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <h2 class="text-primary mt-5">Silver Sponsorship</h2>
+            <div class="row justify-content-center">
+                {%  for sponsor in data %}
+                    {% if sponsor.sponsor_type == 'c' %}
+                        <div class="col-md-4">
+                            <a href="/sponsors/{{ sponsor.id }}">
+                                <div class="card shadow">
+                                    <div class="card-header bg-white text-primary"><h2>{{ sponsor.name }}</h2></div>
+                                    <div class="card-body d-flex align-items-center">
+                                        <img src="/files/sponsors/{{ sponsor.logo }}" loading="lazy" class="img-fluid" alt="{{ sponsor.name }} logo">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </main>
 {%  endblock  %}

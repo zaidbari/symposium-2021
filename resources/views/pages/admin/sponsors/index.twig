@@ -35,8 +35,10 @@
                                 Platinum
                             {% elseif sponsor.sponsor_type == 'b' %}
                                 Gold
-                            {% else %}
+                            {% elseif sponsor.sponsor_type == 'c' %}
                                 Silver
+                                {% else %}
+                                MEGMA
                             {% endif %}
                         </td>
                         <td>

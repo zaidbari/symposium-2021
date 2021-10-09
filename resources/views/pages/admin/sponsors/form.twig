@@ -14,6 +14,7 @@
                 <div class="col-md-6 mb-2">
                     <label for="type" class="form-label">Sponsor Type</label>
                     <select  name="type" id="type" class="form-control" required>
+                        <option value="d"  {% if data.sponsor_type == 'd' %} selected {% endif %}>MEGMA</option>
                         <option value="a"  {% if data.sponsor_type == 'a' %} selected {% endif %}>Platinum</option>
                         <option value="b" {% if data.sponsor_type == 'b' %} selected {% endif %}>Gold</option>
                         <option value="c" {% if data.sponsor_type == 'c' %} selected {% endif %}>Silver</option>
