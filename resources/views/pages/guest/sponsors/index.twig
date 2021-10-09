@@ -4,10 +4,34 @@
         <div class="bg-light py-5">
             <div class="container text-center text-primary"><h3>Our Sponsors</h3></div>
         </div>
-        <div class="container my-5">
+        <div class="container text-center my-5">
+            <h2 class="text-primary mt-5">MEGMA Sponsor</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-2 border py-2"><p class="h4">Veriton</p></div>
+            </div>
+
+            <h2 class="text-primary mt-5">Platinum Sponsor</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-2 border py-2"><p class="h4">Takeda</p></div>
+                <div class="col-md-2 border py-2"><p class="h4">Sanofi</p></div>
+                <div class="col-md-2 border py-2"><p class="h4">Biomarine</p></div>
+                <div class="col-md-2 border py-2"><p class="h4">Genphram</p></div>
+                <div class="col-md-2 border py-2"><p class="h4">Novartis</p></div>
+                <div class="col-md-2 border py-2"><p class="h4">PTC</p></div>
+                <div class="col-md-2 border py-2"><p class="h4">Biologix</p></div>
+            </div>
+            <h2 class="text-primary mt-5">Gold Sponsorship</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4 border py-2"><p class="h4">Recordati Rare Diseases</p></div>
+            </div>
+            <h2 class="text-primary mt-5">Silver Sponsorship</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-2 border py-2"><p class="h4">Amrty</p></div>
+                <div class="col-md-2 border py-2"><p class="h4">Sobi</p></div>
+                <div class="col-md-2 border py-2"><p class="h4">Immedica</p></div>
+            </div>
             <div class="row">
                 {%  for sponsor in data %}
-
                     <div class="
                         my-4
                         {% if sponsor.sponsor_type == 'a' %} col-md-12
@@ -23,9 +47,7 @@
                                 </div>
                             </div>
                         </a>
-
                     </div>
-
                 {% endfor %}
             </div>
 

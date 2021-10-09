@@ -24,6 +24,7 @@
                         <option value="ae" {{ data.country == 'ae' ? 'selected' : '' }}>UAE</option>
                         <option value="om" {{ data.country == 'om' ? 'selected' : '' }}>Oman</option>
                         <option value="jo" {{ data.country == 'jo' ? 'selected' : '' }}>Jordan</option>
+                        <option value="tr" {{ data.country == 'tr' ? 'selected' : '' }}>Turkey</option>
                     </select>
                     {% for err in errors.country %}
                         <span class="text-danger w-100">{{ err }}</span> <br />
