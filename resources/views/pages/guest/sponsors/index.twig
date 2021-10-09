@@ -5,11 +5,11 @@
             <div class="container text-center text-primary"><h3>Our Sponsors</h3></div>
         </div>
         <div class="container text-center my-5">
-            <h2 class="text-primary mt-5">MEGMA Sponsor</h2>
+            <h2 class="alert alert-primary my-5">MEGMA Sponsorship</h2>
             <div class="row justify-content-center">
                 {%  for sponsor in data %}
                     {% if sponsor.sponsor_type == 'd' %}
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-4">
                             <a href="/sponsors/{{ sponsor.id }}">
                                 <div class="card shadow">
                                     <div class="card-header bg-white text-primary"><h2>{{ sponsor.name }}</h2></div>
@@ -23,11 +23,11 @@
                 {% endfor %}
             </div>
 
-            <h2 class="text-primary mt-5">Platinum Sponsor</h2>
+            <h2 class="alert alert-primary my-5">Platinum Sponsorship</h2>
             <div class="row justify-content-center">
                 {%  for sponsor in data %}
                     {% if sponsor.sponsor_type == 'a' %}
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-4">
                             <a href="/sponsors/{{ sponsor.id }}">
                                 <div class="card shadow">
                                     <div class="card-header bg-white text-primary"><h2>{{ sponsor.name }}</h2></div>
@@ -41,11 +41,11 @@
                 {% endfor %}
             </div>
 
-            <h2 class="text-primary mt-5">Gold Sponsorship</h2>
+            <h2 class="alert alert-primary my-5">Gold Sponsorship</h2>
             <div class="row justify-content-center">
                 {%  for sponsor in data %}
                     {% if sponsor.sponsor_type == 'b' %}
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-4">
                             <a href="/sponsors/{{ sponsor.id }}">
                                 <div class="card shadow">
                                     <div class="card-header bg-white text-primary"><h2>{{ sponsor.name }}</h2></div>
@@ -58,11 +58,11 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <h2 class="text-primary mt-5">Silver Sponsorship</h2>
+            <h2 class="alert alert-primary my-5">Silver Sponsorship</h2>
             <div class="row justify-content-center">
                 {%  for sponsor in data %}
                     {% if sponsor.sponsor_type == 'c' %}
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-4">
                             <a href="/sponsors/{{ sponsor.id }}">
                                 <div class="card shadow">
                                     <div class="card-header bg-white text-primary"><h2>{{ sponsor.name }}</h2></div>
