@@ -184,6 +184,8 @@ class Sponsors extends Controller
 		foreach ( $request->param('value') as $key => $value ) {
 			$data = $key + 1;
 			Sponsor::updatePosition($data, $value);
+			file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/files/errors.txt', 'Some txt');
 		}
+
 	}
 }

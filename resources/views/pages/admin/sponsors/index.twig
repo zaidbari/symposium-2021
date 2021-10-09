@@ -62,6 +62,11 @@
     <script src="/resources/assets/js/jui.js"></script>
     <script>
         let $sortable = $( "#tableList > tbody" )
-        $sortable.sortable({ stop: () => $.post("/admin/speakers/updatePosition",{ value: $sortable.sortable( "toArray" ) }) })
+        // $sortable.sortable({ stop: () => $.post("/admin/sponsors/updatePosition",{ value: $sortable.sortable( "toArray" ) }).success(e => console.log(e)).error(e => console.log(e.details)) })
+        $sortable.sortable({ stop: () => $.ajax(({
+                url: "/admin/sponsors/updatePosition",
+                data: {value: $sortable.sortable("toArray")},
+                success: (result) => console.log(result)
+            }))})
     </script>
 {% endblock %}
