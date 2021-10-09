@@ -32,13 +32,13 @@
                         <td>{{ sponsor.sponsor_clicks }}</td>
                         <td>
                             {% if sponsor.sponsor_type == 'a' %}
-                                Platinum
-                            {% elseif sponsor.sponsor_type == 'b' %}
-                                Gold
-                            {% elseif sponsor.sponsor_type == 'c' %}
-                                Silver
-                                {% else %}
                                 MEGMA
+                            {% elseif sponsor.sponsor_type == 'b' %}
+                                Platinum
+                            {% elseif sponsor.sponsor_type == 'c' %}
+                                Gold
+                                {% else %}
+                                Silver
                             {% endif %}
                         </td>
                         <td>
