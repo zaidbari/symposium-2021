@@ -8,7 +8,7 @@
             <h2 class="alert alert-primary my-5">MEGMA Sponsorship</h2>
             <div class="row justify-content-center">
                 {%  for sponsor in data %}
-                    {% if sponsor.sponsor_type == 'd' %}
+                    {% if sponsor.sponsor_type == 'a' %}
                         <div class="col-md-4 mb-4">
                             <a href="/sponsors/{{ sponsor.id }}">
                                 <div class="card shadow">
@@ -26,7 +26,7 @@
             <h2 class="alert alert-primary my-5">Platinum Sponsorship</h2>
             <div class="row justify-content-center">
                 {%  for sponsor in data %}
-                    {% if sponsor.sponsor_type == 'a' %}
+                    {% if sponsor.sponsor_type == 'b' %}
                         <div class="col-md-4 mb-4">
                             <a href="/sponsors/{{ sponsor.id }}">
                                 <div class="card shadow">
@@ -44,7 +44,7 @@
             <h2 class="alert alert-primary my-5">Gold Sponsorship</h2>
             <div class="row justify-content-center">
                 {%  for sponsor in data %}
-                    {% if sponsor.sponsor_type == 'b' %}
+                    {% if sponsor.sponsor_type == 'c' %}
                         <div class="col-md-4 mb-4">
                             <a href="/sponsors/{{ sponsor.id }}">
                                 <div class="card shadow">
@@ -61,7 +61,7 @@
             <h2 class="alert alert-primary my-5">Silver Sponsorship</h2>
             <div class="row justify-content-center">
                 {%  for sponsor in data %}
-                    {% if sponsor.sponsor_type == 'c' %}
+                    {% if sponsor.sponsor_type == 'd' %}
                         <div class="col-md-4 mb-4">
                             <a href="/sponsors/{{ sponsor.id }}">
                                 <div class="card shadow">
