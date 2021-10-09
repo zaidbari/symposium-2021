@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row mb-4">
             <div class="col-md-2 ms-auto">
-                <a href="/admin/sponsors/create" class="btn btn-primary w-100" >Create sponsor</a>
+                <a href="/admin/sponsors/create" class="btn btn-primary w-100">Create sponsor</a>
             </div>
         </div>
 
@@ -19,7 +19,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for sponsor in data %}
+                {% for sponsor in data|sort((a, b) => a.position <=> b.position) %}
                     <tr id="{{ sponsor.id }}" class="single">
                         <td>
                             {% if sponsor.logo %}
@@ -57,16 +57,23 @@
     </div>
 {% endblock %}
 
+
 {% block scripts %}
     <script src="/resources/assets/js/jquery.js"></script>
     <script src="/resources/assets/js/jui.js"></script>
     <script>
         let $sortable = $( "#tableList > tbody" )
-        // $sortable.sortable({ stop: () => $.post("/admin/sponsors/updatePosition",{ value: $sortable.sortable( "toArray" ) }).success(e => console.log(e)).error(e => console.log(e.details)) })
-        $sortable.sortable({ stop: () => $.ajax(({
-                url: "/admin/sponsors/updatePosition",
-                data: {value: $sortable.sortable("toArray")},
-                success: (result) => console.log(result)
-            }))})
+        $sortable.sortable({ stop: () => $.post("/admin/sponsors/updatePosition",{ value: $sortable.sortable( "toArray" ) }) })
     </script>
 {% endblock %}
+
+{#{% block scripts %}#}
+
+{#    <script src="/resources/assets/js/jquery.js"></script>#}
+{#    <script src="/resources/assets/js/jui.js"></script>#}
+{#    <script>#}
+{#        let $sortable = $( "#tableList > tbody" )#}
+{#        $sortable.sortable({ stop: () => $.post("/admin/sponsors/updatePosition",{ value: $sortable.sortable( "toArray" ) }) })#}
+
+{#    </script>#}
+{#{% endblock %}#}

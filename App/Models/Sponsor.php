@@ -16,7 +16,7 @@ class Sponsor extends \Core\Model
 	public static function all() : array
 	{
 		$db = static::db();
-		return $db->table('sponsors')->orderBy('sponsor_type')->orderBy('position', 'DESC')->get();
+		return $db->table('sponsors')->orderBy('sponsor_type')->orderBy('position')->get();
 	}
 
 	/**
