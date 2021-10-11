@@ -19,11 +19,13 @@
 <section class="sponsors container-fluid">
     <div class="row">
         {% for sponsor in sponsors %}
+            {% if sponsor.type != 'e' %}
             <div class="col-md-2 col-6 mb-4 align-self-center text-center p-md-4">
                 <a target="_blank" href="/sponsors/{{ sponsor.id }}">
                     <img loading="lazy" src="/files/sponsors/{{ sponsor.logo }}" class="img-fluid" alt="">
                 </a>
             </div>
+            {% endif %}
         {% endfor %}
     </div>
 </section>

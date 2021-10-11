@@ -10,13 +10,13 @@
         <div class="table-responsive bg-white shadow rounded">
             <table class="table align-middle table-bordered" id="tableList">
                 <thead class="table-dark">
-                <tr>
-                    <th scope="col" style="width: 50px">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col" style="width: 150px">Unique Views</th>
-                    <th scope="col" style="width: 200px">Type</th>
-                    <th scope="col" style="width: 230px">Actions</th>
-                </tr>
+                    <tr>
+                        <th scope="col" style="width: 50px">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col" style="width: 150px">Unique Views</th>
+                        <th scope="col" style="width: 200px">Type</th>
+                        <th scope="col" style="width: 230px">Actions</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {% for sponsor in data|sort((a, b) => a.position <=> b.position) %}
