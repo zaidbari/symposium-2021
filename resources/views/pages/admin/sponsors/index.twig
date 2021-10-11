@@ -37,8 +37,10 @@
                                 Platinum
                             {% elseif sponsor.sponsor_type == 'c' %}
                                 Gold
-                                {% else %}
+                            {% elseif sponsor.sponsor_type == 'd' %}
                                 Silver
+                                {% else %}
+                                Manager
                             {% endif %}
                         </td>
                         <td>
@@ -57,23 +59,11 @@
     </div>
 {% endblock %}
 
-
 {% block scripts %}
     <script src="/resources/assets/js/jquery.js"></script>
     <script src="/resources/assets/js/jui.js"></script>
     <script>
         let $sortable = $( "#tableList > tbody" )
-        $sortable.sortable({ stop: () => $.post("/admin/sponsors/updatePosition",{ value: $sortable.sortable( "toArray" ) }) })
+        $sortable.sortable({ stop: () => $.post("/admin/sponsors/updatePosition", { value: $sortable.sortable( "toArray" ) }) })
     </script>
 {% endblock %}
-
-{#{% block scripts %}#}
-
-{#    <script src="/resources/assets/js/jquery.js"></script>#}
-{#    <script src="/resources/assets/js/jui.js"></script>#}
-{#    <script>#}
-{#        let $sortable = $( "#tableList > tbody" )#}
-{#        $sortable.sortable({ stop: () => $.post("/admin/sponsors/updatePosition",{ value: $sortable.sortable( "toArray" ) }) })#}
-
-{#    </script>#}
-{#{% endblock %}#}

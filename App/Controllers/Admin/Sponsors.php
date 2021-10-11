@@ -185,6 +185,5 @@ class Sponsors extends Controller
 			$data = $key + 1;
 			Sponsor::updatePosition($data, $value);
 		}
-
 	}
 }

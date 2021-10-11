@@ -114,7 +114,7 @@ class Speakers extends \Core\Controller
 	 */
 	public function updatePosition( $request )
 	{
-		foreach ($request->param('value') as $key => $value) {
+		foreach ( $request->param('value') as $key => $value ) {
 			$data = $key + 1;
 			Speaker::updatePosition($data, $value);
 		}

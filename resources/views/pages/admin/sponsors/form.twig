@@ -14,10 +14,11 @@
                 <div class="col-md-6 mb-2">
                     <label for="type" class="form-label">Sponsor Type</label>
                     <select  name="type" id="type" class="form-control" required>
-                        <option value="d"  {% if data.sponsor_type == 'a' %} selected {% endif %}>MEGMA</option>
-                        <option value="a"  {% if data.sponsor_type == 'b' %} selected {% endif %}>Platinum</option>
-                        <option value="b" {% if data.sponsor_type == 'c' %} selected {% endif %}>Gold</option>
-                        <option value="c" {% if data.sponsor_type == 'd' %} selected {% endif %}>Silver</option>
+                        <option value="a"  {% if data.sponsor_type == 'a' %} selected {% endif %}>MEGMA</option>
+                        <option value="b"  {% if data.sponsor_type == 'b' %} selected {% endif %}>Platinum</option>
+                        <option value="c" {% if data.sponsor_type == 'c' %} selected {% endif %}>Gold</option>
+                        <option value="d" {% if data.sponsor_type == 'd' %} selected {% endif %}>Silver</option>
+                        <option value="e" {% if data.sponsor_type == 'e' %} selected {% endif %}>Manager</option>
                     </select>
                     {% for err in errors.type %}
                         <span class="text-danger w-100">{{ err }}</span> <br />

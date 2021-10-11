@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row mb-4">
             <div class="col-md-2 ms-auto">
-                <a href="/admin/speakers/create" class="btn btn-primary w-100" >Create speaker</a>
+                <a href="/admin/speakers/create" class="btn btn-primary w-100">Create speaker</a>
             </div>
         </div>
 
@@ -63,6 +63,6 @@
     <script src="/resources/assets/js/jui.js"></script>
     <script>
         let $sortable = $( "#tableList > tbody" )
-        $sortable.sortable({ stop: () => $.post("/admin/speakers/updatePosition",{ value: $sortable.sortable( "toArray" ) }) })
+        $sortable.sortable({ stop: () => $.post("/admin/speakers/updatePosition", { value: $sortable.sortable( "toArray" ) }) })
     </script>
 {% endblock %}
