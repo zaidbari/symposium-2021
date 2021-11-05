@@ -5,6 +5,7 @@ use App\Models\Analytic;
 use App\Models\Page;
 use App\Models\Speaker;
 use App\Models\Sponsor;
+use App\Models\Video;
 use \Core\View;
 use \Core\Controller;
 
@@ -90,6 +91,21 @@ class Guest extends Controller
 			'data' => Page::one(1)['description'],
 			'meta' => ['title' => 'Contact us']
 		]);
+	}
+
+	/**
+	 * @throws \Pixie\Exception
+	 */
+	public function videos(  )
+	{
+		View::render('guest/videos/index', [
+			'data' => Video::all(),
+			'meta' => [
+				'title' => 'Videos',
+
+			],
+		]);
+
 	}
 
 	public function venue()
