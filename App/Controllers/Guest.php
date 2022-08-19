@@ -87,8 +87,9 @@ class Guest extends Controller
 
 	public function contact(  )
 	{
+		$data = Page::one(1);
 		View::render('guest/contact/index', [
-			'data' => Page::one(1)['description'],
+			'data' => !empty($data) ? $data['description'] : '',
 			'meta' => ['title' => 'Contact us']
 		]);
 	}
@@ -110,10 +111,11 @@ class Guest extends Controller
 
 	public function venue()
 	{
-		View::render('guest/venue/index', [
-			'data' => Page::one(3)['description'],
-			'meta' => ['title' => 'Venue']
-		]);
+		$data = Page::one(3);
+			View::render('guest/venue/index', [
+				'data' => !empty($data) ? $data['description'] : '',
+				'meta' => ['title' => 'Venue']
+			]);
 	}
 
 	/**

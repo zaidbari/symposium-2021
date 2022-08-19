@@ -1,31 +1,35 @@
 <section style="margin-top: -20px" class="header d-flex align-items-center">
-    <div class="p-0 m-0">
-        <div class="row p-0 m-0 justify-content-between">
-            <div class="col-md-4 offset-md-1 align-self-center">
+	<div class="p-0 m-0">
+		<div class="row p-0 m-0 justify-content-between">
+			<div class="col-md-4 offset-md-1 align-self-center">
 
-                <p class="fw-bold lead text-uppercase text-muted font-monospace ps-1" style="letter-spacing: 4px">4th - 6th November, 2021</p>
-                <h1 class="fw-light h3 text-primary"><span class="text-primary">2nd International Middle East Genetics and Metabolic Academy (MEGMA) Symposium, <br> Dubai, UAE</span></h1>
-                <br>
-                <a href="/register" target="_blank" class="btn btn-primary px-4">Register now</a>
-                <a href="/speakers" class="btn btn-success ms-3 px-4">Our speakers</a>
+				<p class="fw-bold lead text-uppercase text-muted font-monospace ps-1" style="letter-spacing: 4px">4th - 6th November, 2022</p>
+				<h1 class="fw-light h3 text-primary">
+					<span class="text-primary">3rd International Middle East Genetics and Metabolic Academy (MEGMA) Symposium,
+						<br>
+						Dubai, UAE</span>
+				</h1>
+				<br>
+				<a href="/register" target="_blank" class="btn btn-primary px-4">Register now</a>
+				<a href="/speakers" class="btn btn-success ms-3 px-4">Our speakers</a>
 
-            </div>
-            <div class="col-md-6 p-0 pl-5 m-0 d-none d-md-block">
-                <img src="/resources/assets/images/headers/head.jpeg" loading="lazy" alt="" class="w-100 shadow rounded">
-            </div>
-        </div>
-    </div>
+			</div>
+			<div class="col-md-6 p-0 pl-5 m-0 d-none d-md-block">
+				<img src="/resources/assets/images/headers/head.jpeg" loading="lazy" alt="" class="w-100 shadow rounded">
+			</div>
+		</div>
+	</div>
 </section>
 <section class="sponsors container-fluid">
-    <div class="row">
-        {% for sponsor in sponsors %}
-            {% if sponsor.sponsor_type != 'e' %}
-            <div class="col-md-2 col-6 mb-4 align-self-center text-center p-md-4">
-                <a target="_blank" href="/sponsors/{{ sponsor.id }}">
-                    <img loading="lazy" src="/files/sponsors/{{ sponsor.logo }}" class="img-fluid" alt="">
-                </a>
-            </div>
-            {% endif %}
-        {% endfor %}
-    </div>
+	<div class="row">
+		{% for sponsor in sponsors %}
+			{% if sponsor.sponsor_type != 'e' %}
+				<div class="col-md-2 col-6 mb-4 align-self-center text-center p-md-4">
+					<a target="_blank" href="/sponsors/{{ sponsor.id }}">
+						<img loading="lazy" src="/files/sponsors/{{ sponsor.logo }}" class="img-fluid" alt="">
+					</a>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
 </section>

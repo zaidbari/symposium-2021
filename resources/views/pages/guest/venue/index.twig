@@ -1,27 +1,29 @@
 {% extends "layout.twig" %}
 {% block content  %}
-    <main>
-        <div class="bg-light py-5">
-            <div class="container text-primary text-center"><h3>Venue</h3></div>
-        </div>
-        <div class="container my-5">
-            {{ decode(data)|raw }}
-
-            <div class="row my-5">
-                <div class="col-md-3">
-                    <img src="/resources/assets/images/hotel/hotel1.jpg" loading="lazy" alt="" class="img-fluid rounded shadow">
-                </div>
-                <div class="col-md-3">
-                    <img src="/resources/assets/images/hotel/hotel2.jpg" loading="lazy" alt="" class="img-fluid rounded shadow">
-                </div>
-                <div class="col-md-3">
-                    <img src="/resources/assets/images/hotel/hotel3.jpg" loading="lazy" alt="" class="img-fluid rounded shadow">
-                </div>
-                <div class="col-md-3">
-                    <img src="/resources/assets/images/hotel/hotel4.jpg" loading="lazy" alt="" class="img-fluid rounded shadow">
-                </div>
-            </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d57738.154068912794!2d55.31203440397352!3d25.24922838236459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3e5f5d052da27f4b%3A0x1e08c07158e27b01!2sAirport%20Rd%20-%20Garhoud%20-%20Dubai!3m2!1d25.2491549!2d55.3471396!5e0!3m2!1sen!2s!4v1633433269089!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </main>
+	<main>
+		<div class="bg-light py-5">
+			<div class="container text-primary text-center">
+				<h3>Venue</h3>
+			</div>
+		</div>
+		<div class="container my-5">
+			{{ decode(data)|raw }}
+			{# 
+						<div class="row my-5">
+							<div class="col-md-3">
+								<img src="/resources/assets/images/hotel/hotel1.jpg" loading="lazy" alt="" class="img-fluid rounded shadow">
+							</div>
+							<div class="col-md-3">
+								<img src="/resources/assets/images/hotel/hotel2.jpg" loading="lazy" alt="" class="img-fluid rounded shadow">
+							</div>
+							<div class="col-md-3">
+								<img src="/resources/assets/images/hotel/hotel3.jpg" loading="lazy" alt="" class="img-fluid rounded shadow">
+							</div>
+							<div class="col-md-3">
+								<img src="/resources/assets/images/hotel/hotel4.jpg" loading="lazy" alt="" class="img-fluid rounded shadow">
+							</div>
+						</div>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d57738.154068912794!2d55.31203440397352!3d25.24922838236459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3e5f5d052da27f4b%3A0x1e08c07158e27b01!2sAirport%20Rd%20-%20Garhoud%20-%20Dubai!3m2!1d25.2491549!2d55.3471396!5e0!3m2!1sen!2s!4v1633433269089!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> #}
+		</div>
+	</main>
 {%  endblock  %}

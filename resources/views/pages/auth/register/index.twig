@@ -1,57 +1,67 @@
 {% extends "layout.twig" %}
 {% block content  %}
-    <style>
-        .c-save-resume-button-container {
-            display: none;
-        }
-        legend {
-            display: none !important;
-        }
-        input, select {
-            display: block;
-            width: 100%;
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #222222;
-            background-color: #eff1f4;
-            background-clip: padding-box;
-            border: 2px solid #eff1f4;
-            appearance: none;
-            border-radius: 0.25rem;
-            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        }
-    </style>
-    <main>
-        <div class="bg-light py-5">
-            <div class="container text-primary text-center"><h3>2nd International MEGMA Symposium - UAE Attendee Registration</h3></div>
-        </div>
-        <div class="container my-5">
-            <div>
-                <div class="row">
-                    <div class="col-md-6">
-
-                        <p class="lead">
-                            <span class="text-primary">Physician - Registration Charges: </span> <span class="fw-bold">AED - 350</span>
-                        </p>
-                        <a href="https://secure.2checkout.com/checkout/buy?merchant=103055722&tpl=default&prod=10019&qty=1" target="_blank" class="btn btn-primary btn-lg">Pay now (Physicians)</a>
-                    </div>
-                    <div class="col-md-6">
-                        <p class="lead">
-                            <span class="text-warning">Non-Physician Registration Charges: </span> <span class="fw-bold"> AED - 250</span><br>
-                        </p>
-                        <a href="https://secure.2checkout.com/checkout/buy?merchant=103055722&tpl=default&prod=10020&qty=1" target="_blank" class="btn btn-warning btn-lg">Pay now (Non-Physicians)</a>
-
-                    </div>
-                </div>
-                <hr>
-                    <p class="my-3 lead text-danger">Save the payment receipt to be attached during registration process.</p>
-            </div>
-            <div class="cognito">
-                <script src="https://www.cognitoforms.com/s/n-oxFec6v0SazUVQi5Fm9A"></script>
-                <script>Cognito.load("forms", { id: "44" });</script>
-            </div>
-        </div>
-    </main>
+	<style>
+		.c-save-resume-button-container {
+			display: none;
+		}
+		legend {
+			display: none !important;
+		}
+		input,
+		select {
+			display: block;
+			width: 100%;
+			padding: 10px 20px;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			color: #222222;
+			background-color: #eff1f4;
+			background-clip: padding-box;
+			border: 2px solid #eff1f4;
+			appearance: none;
+			border-radius: 0.25rem;
+			transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+		}
+	</style>
+	<main>
+		<div class="bg-light py-5">
+			<div class="container text-primary text-center">
+				<h3>3rd International MEGMA Symposium - UAE Attendee Registration</h3>
+			</div>
+		</div>
+		{# <div class="container my-5">
+					<div>
+						<div class="row">
+							<div class="col-md-6">
+		
+								<p class="lead">
+									<span class="text-primary">Physician - Registration Charges:
+									</span>
+									<span class="fw-bold">AED - 350</span>
+								</p>
+								<a href="https://secure.2checkout.com/checkout/buy?merchant=103055722&tpl=default&prod=10019&qty=1" target="_blank" class="btn btn-primary btn-lg">Pay now (Physicians)</a>
+							</div>
+							<div class="col-md-6">
+								<p class="lead">
+									<span class="text-warning">Non-Physician Registration Charges:
+									</span>
+									<span class="fw-bold">
+										AED - 250</span><br>
+								</p>
+								<a href="https://secure.2checkout.com/checkout/buy?merchant=103055722&tpl=default&prod=10020&qty=1" target="_blank" class="btn btn-warning btn-lg">Pay now (Non-Physicians)</a>
+		
+							</div>
+						</div>
+						<hr>
+						<p class="my-3 lead text-danger">Save the payment receipt to be attached during registration process.</p>
+					</div>
+					<div class="cognito">
+						<script src="https://www.cognitoforms.com/s/n-oxFec6v0SazUVQi5Fm9A"></script>
+						<script>
+							Cognito.load( "forms", { id: "44" } );
+						</script>
+					</div>
+				</div> #}
+	</main>
 {%  endblock  %}

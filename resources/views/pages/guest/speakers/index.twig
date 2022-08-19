@@ -1,34 +1,41 @@
 {% extends "layout.twig" %}
 {% block content  %}
-    <main>
-        <div class="bg-light py-5">
-            <div class="container text-center text-primary"><h3>Speakers</h3></div>
-        </div>
-        <div class="container my-5">
-            {% if data|length > 0 %}
-                {%  for speaker in data %}
-                    <div class="row mb-4" >
-                            <div class="col-md-3">
-                                <div class="card text-center card-body">
-                                    <div class="p-md-4">
-                                        <div class="ratio ratio-1x1">
-                                            <img loading="lazy" src="/files/speakers/{{ speaker.image }}" class="border border-4 border-primary" style="border-radius: 100%" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <div class="col-md-9">
-                            <div class="card p-md-5 card-body">
-                                <h3 class="text-primary"> <img src="/resources/assets/images/flags/{{ speaker.country }}.svg" class="shadow rounded" style="width: 50px" alt=""> {{ speaker.name }} </h3>
-                                <p class="fw-bold text-muted">{{ speaker.affiliation }}</p>
-                                <p>{{ decode(speaker.bio)|raw }}</p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-                {% else %}
-                No Speakers
-            {% endif %}
-        </div>
-    </main>
+	<main>
+		<div class="bg-light py-5">
+			<div class="container text-center text-primary">
+				<h3>Speakers</h3>
+			</div>
+		</div>
+		<div class="container my-5">
+			{% if data|length > 0 %}
+				{%  for speaker in data %}
+					<div class="row mb-4">
+						<div class="col-md-3">
+							<div class="card text-center card-body">
+								<div class="p-md-4">
+									<div class="ratio ratio-1x1">
+										<img loading="lazy" src="/files/speakers/{{ speaker.image }}" class="border border-4 border-primary" style="border-radius: 100%" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<div class="card p-md-5 card-body">
+								<h3 class="text-primary">
+									<img src="/resources/assets/images/flags/{{ speaker.country }}.svg" class="shadow rounded" style="width: 50px" alt="">
+									{{ speaker.name }}
+								</h3>
+								<p class="fw-bold text-muted">{{ speaker.affiliation }}</p>
+								<p>{{ decode(speaker.bio)|raw }}</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="alert alert-primary text-center">
+					<h1>No speakers</h1>
+				</div>
+			{% endif %}
+		</div>
+	</main>
 {%  endblock  %}
